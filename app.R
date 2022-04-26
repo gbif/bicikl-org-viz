@@ -17,8 +17,13 @@ get_dataframe <- function(org_id = 0,level = 1) {
     # Create the file iname
     file_name <- paste('data/org_',org_id,'.',level,'.csv', sep = '')
     
-    #PENDING IF FILE NOT FOUND
-    return(read.csv(file_name))
+    if (file.exists(file_name)) {
+        # Read the preloaded dataframe with the desire level of depth
+        return(read.csv(file_name))
+        
+    } else {
+        return(NULL)
+    }
 }
 
 
@@ -32,6 +37,7 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
             selectInput('filter_org_list','Select an Organization',org_key_value),
+            selectInput('filter_depth','Select the Depth',c('First level' = 1,'Second level' = 2)),
             actionButton('btn_visualize','Visualize')
         ),
 
@@ -45,7 +51,19 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     observeEvent(input$btn_visualize, {
-        output$relationships_table <- renderDataTable(get_dataframe(input$filter_org_list))
+        dataTable <- get_dataframe(input$filter_org_list,input$filter_depth)
+        
+        # Remove unnecessary columns from the dataframe
+        dataTable$X <- NULL
+        dataTable$organisation_id.x <- NULL
+        dataTable$organisation_name.x <- NULL
+        dataTable$organisation_abbr.x <- NULL
+        
+        # Renaming column names
+        colnames(dataTable) <- c('Organisation Name', 'ID', 'Abbr')
+        
+        # Rendering the final table
+        output$relationships_table <- renderDataTable(unique(dataTable))
     })
 
     
