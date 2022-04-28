@@ -1,111 +1,111 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","Swiss Institute of Bioinformatics",2682,"SIB","Swiss Institute of Bioinformatics",2682,""
-"2","Swiss Institute of Bioinformatics",2682,"SIB","European Union, Serving Life-science Information for the Next Generation (SLING)",966,""
-"3","Swiss Institute of Bioinformatics",2682,"SIB","French Government, France",1058,""
-"5","Swiss Institute of Bioinformatics",2682,"SIB","Dessimoz Lab, Computational Evolutionary Biology and Genomics, Lausanne, Switzerland",748,""
-"6","Swiss Institute of Bioinformatics",2682,"SIB","Bayer Crop Science, Germany",177,""
-"7","Swiss Institute of Bioinformatics",2682,"SIB","Swiss Federal Institute of Technology in Zurich (ETH Zurich), Switzerland",2679,""
-"9","Swiss Institute of Bioinformatics",2682,"SIB","Ecole Polytechnique Federale de Lausanne, Lausanne, Switzerland",819,""
-"11","Swiss Institute of Bioinformatics",2682,"SIB","Macquarie University, Sydney, Australia",1741,""
-"12","Swiss Institute of Bioinformatics",2682,"SIB","University of Gothenburg",3058,""
-"13","Swiss Institute of Bioinformatics",2682,"SIB","Soka University, Tokyo, Japan",2591,""
-"15","Swiss Institute of Bioinformatics",2682,"SIB","European Bioinformatics Institute, Wellcome Genome Campus",908,""
-"16","Swiss Institute of Bioinformatics",2682,"SIB","Universit d'Aix-Marseille, Marseille, France",2980,""
-"17","Swiss Institute of Bioinformatics",2682,"SIB","Enveda Therapeutics",863,""
-"19","Swiss Institute of Bioinformatics",2682,"SIB","University of Heidelberg, Germany",3062,""
-"20","Swiss Institute of Bioinformatics",2682,"SIB","University of Southern California",3125,""
-"21","Swiss Institute of Bioinformatics",2682,"SIB","Institute of Structural and Molecular Biology, University College London, London, UK",1438,""
-"22","Swiss Institute of Bioinformatics",2682,"SIB","University of Calabria",3026,""
-"23","Swiss Institute of Bioinformatics",2682,"SIB","Bioinformatics and Computational Biology Unit, Molecular Genetics Laboratory, University of Rome Tor Vergata",679,""
-"25","Swiss Institute of Bioinformatics",2682,"SIB","Department of Medicine, University of California San Diego",725,""
-"26","Swiss Institute of Bioinformatics",2682,"SIB","NTNU - Norwegian University of Science and Technology",2200,""
-"27","Swiss Institute of Bioinformatics",2682,"SIB","Departement de Biologie (IBENS), Ecole Normale Superieure, Paris, France",663,""
-"28","Swiss Institute of Bioinformatics",2682,"SIB","Berkeley BOP (BBOP), Lawrence Berkeley National Labs (LBNL), Berkeley, CA, USA",202,""
-"29","Swiss Institute of Bioinformatics",2682,"SIB","RWTH Aachen, Germany",2477,""
-"30","Swiss Institute of Bioinformatics",2682,"SIB","GlaxoSmithKline (United Kingdom)",403,""
-"33","Swiss Institute of Bioinformatics",2682,"SIB","University of Oxford",3112,""
-"34","Swiss Institute of Bioinformatics",2682,"SIB","Beilstein-Institut, Frankfurt am Main, Germany",195,""
-"36","Swiss Institute of Bioinformatics",2682,"SIB","Complex Carbohydrate Research Center, University of Georgia, Athens, Georgia, United States",573,""
-"37","Swiss Institute of Bioinformatics",2682,"SIB","National Institute of General Medical Sciences",2018,""
-"40","Swiss Institute of Bioinformatics",2682,"SIB","Biotechnology and Biological Sciences Research Council",278,""
-"41","Swiss Institute of Bioinformatics",2682,"SIB","National Center for Research Resources (NCRR), National Institutes of Health, Bethesda, MD, USA",1970,""
-"43","Swiss Institute of Bioinformatics",2682,"SIB","European Commission FP7",920,""
-"45","Swiss Institute of Bioinformatics",2682,"SIB","The Swiss Initiative in Systems Biology (SystemsX.ch), Zurich, Switzerland",2839,""
-"46","Swiss Institute of Bioinformatics",2682,"SIB","ELIXIR",839,""
-"47","Swiss Institute of Bioinformatics",2682,"SIB","State Secretariat for Education, Research and Innovation",2635,""
-"48","Swiss Institute of Bioinformatics",2682,"SIB","Amos Bairoch - Lydie Lane's group, Swiss Institute of Bioinformatics",587,""
-"50","Swiss Institute of Bioinformatics",2682,"SIB","Commission for Technology and Innovation (CTI), Bern, Switzerland",563,""
-"51","Swiss Institute of Bioinformatics",2682,"SIB","Department of Ecology and Evolution, University of Lausanne",3075,""
-"52","Swiss Institute of Bioinformatics",2682,"SIB","Etat de Vaud, Lausanne, Switzerland",881,""
-"53","Swiss Institute of Bioinformatics",2682,"SIB","National Science Foundation",2071,""
-"54","Swiss Institute of Bioinformatics",2682,"SIB","BGEE administrators",209,""
-"57","Swiss Institute of Bioinformatics",2682,"SIB","Swiss National Science Foundation",2684,""
-"58","Swiss Institute of Bioinformatics",2682,"SIB","The National Evolutionary Synthesis Center (NESCent), USA",2809,""
-"62","Swiss Institute of Bioinformatics",2682,"SIB","International Union of Biochemistry and Molecular Biology (IUBMB)",1533,""
-"63","Swiss Institute of Bioinformatics",2682,"SIB","Novo Nordisk Foundation Center for Protein Research (CPR), Denmark",2196,""
-"64","Swiss Institute of Bioinformatics",2682,"SIB","European Molecular Biology Laboratory",941,""
-"65","Swiss Institute of Bioinformatics",2682,"SIB","University of Zurich, Switzerland",3155,""
-"66","Swiss Institute of Bioinformatics",2682,"SIB","European Molecular Biology Organization",943,""
-"67","Swiss Institute of Bioinformatics",2682,"SIB","Foundation ProBioC, Heidelberg, Germany",1045,""
-"69","Swiss Institute of Bioinformatics",2682,"SIB","Faculty of Health and Medical Sciences, University of Copenhagen, Copenhagen, Denmark",984,""
-"70","Swiss Institute of Bioinformatics",2682,"SIB","Federal Ministry of Education and Research",333,""
-"73","Swiss Institute of Bioinformatics",2682,"SIB","National Library of Medicine",2045,""
-"75","Swiss Institute of Bioinformatics",2682,"SIB","National Institutes of Health",2035,""
-"79","Swiss Institute of Bioinformatics",2682,"SIB","European Commission",915,""
-"87","Swiss Institute of Bioinformatics",2682,"SIB","Federal Statistical Office",2680,""
-"89","Swiss Institute of Bioinformatics",2682,"SIB","Biozentrum, University of Basel, Basel, Switzerland",284,""
-"100","Swiss Institute of Bioinformatics",2682,"SIB","Public Health England",2383,""
-"101","Swiss Institute of Bioinformatics",2682,"SIB","Genetica DNA Laboratories, Burglington, NC, USA",1103,""
-"102","Swiss Institute of Bioinformatics",2682,"SIB","UK Global Biological Standards Institute (GBSI)",2898,""
-"103","Swiss Institute of Bioinformatics",2682,"SIB","Promega France",2372,""
-"105","Swiss Institute of Bioinformatics",2682,"SIB","Riken Resource Centre, Japan",2450,""
-"106","Swiss Institute of Bioinformatics",2682,"SIB","Japanese Collection of Research Bioresources Cell Bank (JCRB Cell Bank), Osaka, Japan",1589,""
-"107","Swiss Institute of Bioinformatics",2682,"SIB","CellBank Australia, Westmead, NSW, Australia",392,""
-"108","Swiss Institute of Bioinformatics",2682,"SIB","ATCC Standards Development Organisation",130,""
-"114","Swiss Institute of Bioinformatics",2682,"SIB","ELIXIR Czech Republic",840,""
-"118","Swiss Institute of Bioinformatics",2682,"SIB","Multimodal and Functional Imaging Laboratory, Central European Institute of Technology (CEITEC), Brno, Czech Republic",1912,""
-"120","Swiss Institute of Bioinformatics",2682,"SIB","Chinese Governement Scholarship",2267,""
-"122","Swiss Institute of Bioinformatics",2682,"SIB","Science Foundation Ireland",2520,""
-"125","Swiss Institute of Bioinformatics",2682,"SIB","Conway Institute of Biomolecular and Biomedical Research, University College Dublin, Belfield, Ireland",608,""
-"127","Swiss Institute of Bioinformatics",2682,"SIB","UniProt Consortium",2916,""
-"135","Swiss Institute of Bioinformatics",2682,"SIB","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,""
-"136","Swiss Institute of Bioinformatics",2682,"SIB","TDWG Consortium",2712,""
-"138","Swiss Institute of Bioinformatics",2682,"SIB","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,""
-"139","Swiss Institute of Bioinformatics",2682,"SIB","India Alliance DBT Wellcome",1325,""
-"140","Swiss Institute of Bioinformatics",2682,"SIB","Medical Research Council",1812,""
-"141","Swiss Institute of Bioinformatics",2682,"SIB","MS Society",1908,""
-"142","Swiss Institute of Bioinformatics",2682,"SIB","Worldwide Cancer Research",3259,""
-"143","Swiss Institute of Bioinformatics",2682,"SIB","Global Biodiversity Information Facility",1166,""
-"144","Swiss Institute of Bioinformatics",2682,"SIB","Cancer Research UK Manchester Institute",368,""
-"145","Swiss Institute of Bioinformatics",2682,"SIB","The Dunhill Medical Trust",2766,""
-"146","Swiss Institute of Bioinformatics",2682,"SIB","Telethon Foundation",2727,""
-"147","Swiss Institute of Bioinformatics",2682,"SIB","Blood Cancer UK",287,""
-"148","Swiss Institute of Bioinformatics",2682,"SIB","Chief Scientist Office",503,""
-"149","Swiss Institute of Bioinformatics",2682,"SIB","Motor Neuron Disease Association",1899,""
-"150","Swiss Institute of Bioinformatics",2682,"SIB","Prostate Cancer UK",2373,""
-"151","Swiss Institute of Bioinformatics",2682,"SIB","Austrian Science Fund (FWF), Austria",154,""
-"152","Swiss Institute of Bioinformatics",2682,"SIB","Action on Hearing Loss",21,""
-"153","Swiss Institute of Bioinformatics",2682,"SIB","The Academy of Medical Sciences",2741,""
-"154","Swiss Institute of Bioinformatics",2682,"SIB","Parkinson's Disease UK (PDUK)",2290,""
-"155","Swiss Institute of Bioinformatics",2682,"SIB","Breast Cancer Now",307,""
-"156","Swiss Institute of Bioinformatics",2682,"SIB","Arthritis Research UK",115,""
-"157","Swiss Institute of Bioinformatics",2682,"SIB","National Centre for the Replacement, Refinement and Reduction of Animals in Research (NC3Rs), London, UK",1975,""
-"158","Swiss Institute of Bioinformatics",2682,"SIB","World Health Organization (WHO)",3252,""
-"159","Swiss Institute of Bioinformatics",2682,"SIB","National Institute for Health Research",2003,""
-"160","Swiss Institute of Bioinformatics",2682,"SIB","Myrovlytis Trust",1924,""
-"161","Swiss Institute of Bioinformatics",2682,"SIB","Diabetes UK",757,""
-"162","Swiss Institute of Bioinformatics",2682,"SIB","The British Heart Foundation",2747,""
-"163","Swiss Institute of Bioinformatics",2682,"SIB","The European Research Council (ERC)",2772,""
-"164","Swiss Institute of Bioinformatics",2682,"SIB","Alzheimers Society",67,""
-"165","Swiss Institute of Bioinformatics",2682,"SIB","The Wellcome Trust",2854,""
-"167","Swiss Institute of Bioinformatics",2682,"SIB","Marie Curie",1752,""
-"169","Swiss Institute of Bioinformatics",2682,"SIB","Plazi",3378,""
-"170","Swiss Institute of Bioinformatics",2682,"SIB","Pensoft Publishers",2305,""
-"171","Swiss Institute of Bioinformatics",2682,"SIB","Naturalis Biodiversity Center",2094,""
-"173","Swiss Institute of Bioinformatics",2682,"SIB","University of Tartu, Estonia",3132,""
-"175","Swiss Institute of Bioinformatics",2682,"SIB","LifeWatch ERIC",1717,""
-"176","Swiss Institute of Bioinformatics",2682,"SIB","Consortium of European Taxonomic Facilities",3380,""
-"177","Swiss Institute of Bioinformatics",2682,"SIB","Meise Botanic Garden",3379,""
-"178","Swiss Institute of Bioinformatics",2682,"SIB","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,""
-"181","Swiss Institute of Bioinformatics",2682,"SIB","Stichting TDWG Europe",3385,""
-"183","Swiss Institute of Bioinformatics",2682,"SIB","National eResearch Collaboration Tools and Resources project",1989,""
+"1","Swiss Institute of Bioinformatics",2682,"SIB","Swiss Institute of Bioinformatics",2682,"SIB"
+"2","Swiss Institute of Bioinformatics",2682,"SIB","European Union, Serving Life-science Information for the Next Generation (SLING)",966,NA
+"3","Swiss Institute of Bioinformatics",2682,"SIB","French Government, France",1058,NA
+"5","Swiss Institute of Bioinformatics",2682,"SIB","Dessimoz Lab, Computational Evolutionary Biology and Genomics, Lausanne, Switzerland",748,NA
+"6","Swiss Institute of Bioinformatics",2682,"SIB","Bayer Crop Science, Germany",177,NA
+"7","Swiss Institute of Bioinformatics",2682,"SIB","Swiss Federal Institute of Technology in Zurich (ETH Zurich), Switzerland",2679,NA
+"9","Swiss Institute of Bioinformatics",2682,"SIB","Ecole Polytechnique Federale de Lausanne, Lausanne, Switzerland",819,NA
+"11","Swiss Institute of Bioinformatics",2682,"SIB","Macquarie University, Sydney, Australia",1741,NA
+"12","Swiss Institute of Bioinformatics",2682,"SIB","University of Gothenburg",3058,NA
+"13","Swiss Institute of Bioinformatics",2682,"SIB","Soka University, Tokyo, Japan",2591,NA
+"15","Swiss Institute of Bioinformatics",2682,"SIB","European Bioinformatics Institute, Wellcome Genome Campus",908,NA
+"16","Swiss Institute of Bioinformatics",2682,"SIB","Universit d'Aix-Marseille, Marseille, France",2980,NA
+"17","Swiss Institute of Bioinformatics",2682,"SIB","Enveda Therapeutics",863,NA
+"19","Swiss Institute of Bioinformatics",2682,"SIB","University of Heidelberg, Germany",3062,NA
+"20","Swiss Institute of Bioinformatics",2682,"SIB","University of Southern California",3125,NA
+"21","Swiss Institute of Bioinformatics",2682,"SIB","Institute of Structural and Molecular Biology, University College London, London, UK",1438,NA
+"22","Swiss Institute of Bioinformatics",2682,"SIB","University of Calabria",3026,NA
+"23","Swiss Institute of Bioinformatics",2682,"SIB","Bioinformatics and Computational Biology Unit, Molecular Genetics Laboratory, University of Rome Tor Vergata",679,NA
+"25","Swiss Institute of Bioinformatics",2682,"SIB","Department of Medicine, University of California San Diego",725,NA
+"26","Swiss Institute of Bioinformatics",2682,"SIB","NTNU - Norwegian University of Science and Technology",2200,NA
+"27","Swiss Institute of Bioinformatics",2682,"SIB","Departement de Biologie (IBENS), Ecole Normale Superieure, Paris, France",663,NA
+"28","Swiss Institute of Bioinformatics",2682,"SIB","Berkeley BOP (BBOP), Lawrence Berkeley National Labs (LBNL), Berkeley, CA, USA",202,NA
+"29","Swiss Institute of Bioinformatics",2682,"SIB","RWTH Aachen, Germany",2477,NA
+"30","Swiss Institute of Bioinformatics",2682,"SIB","GlaxoSmithKline (United Kingdom)",403,NA
+"33","Swiss Institute of Bioinformatics",2682,"SIB","University of Oxford",3112,NA
+"34","Swiss Institute of Bioinformatics",2682,"SIB","Beilstein-Institut, Frankfurt am Main, Germany",195,NA
+"36","Swiss Institute of Bioinformatics",2682,"SIB","Complex Carbohydrate Research Center, University of Georgia, Athens, Georgia, United States",573,NA
+"37","Swiss Institute of Bioinformatics",2682,"SIB","National Institute of General Medical Sciences",2018,NA
+"40","Swiss Institute of Bioinformatics",2682,"SIB","Biotechnology and Biological Sciences Research Council",278,NA
+"41","Swiss Institute of Bioinformatics",2682,"SIB","National Center for Research Resources (NCRR), National Institutes of Health, Bethesda, MD, USA",1970,NA
+"43","Swiss Institute of Bioinformatics",2682,"SIB","European Commission FP7",920,NA
+"45","Swiss Institute of Bioinformatics",2682,"SIB","The Swiss Initiative in Systems Biology (SystemsX.ch), Zurich, Switzerland",2839,NA
+"46","Swiss Institute of Bioinformatics",2682,"SIB","ELIXIR",839,NA
+"47","Swiss Institute of Bioinformatics",2682,"SIB","State Secretariat for Education, Research and Innovation",2635,NA
+"48","Swiss Institute of Bioinformatics",2682,"SIB","Amos Bairoch - Lydie Lane's group, Swiss Institute of Bioinformatics",587,NA
+"50","Swiss Institute of Bioinformatics",2682,"SIB","Commission for Technology and Innovation (CTI), Bern, Switzerland",563,NA
+"51","Swiss Institute of Bioinformatics",2682,"SIB","Department of Ecology and Evolution, University of Lausanne",3075,NA
+"52","Swiss Institute of Bioinformatics",2682,"SIB","Etat de Vaud, Lausanne, Switzerland",881,NA
+"53","Swiss Institute of Bioinformatics",2682,"SIB","National Science Foundation",2071,NA
+"54","Swiss Institute of Bioinformatics",2682,"SIB","BGEE administrators",209,NA
+"57","Swiss Institute of Bioinformatics",2682,"SIB","Swiss National Science Foundation",2684,NA
+"58","Swiss Institute of Bioinformatics",2682,"SIB","The National Evolutionary Synthesis Center (NESCent), USA",2809,NA
+"62","Swiss Institute of Bioinformatics",2682,"SIB","International Union of Biochemistry and Molecular Biology (IUBMB)",1533,NA
+"63","Swiss Institute of Bioinformatics",2682,"SIB","Novo Nordisk Foundation Center for Protein Research (CPR), Denmark",2196,NA
+"64","Swiss Institute of Bioinformatics",2682,"SIB","European Molecular Biology Laboratory",941,NA
+"65","Swiss Institute of Bioinformatics",2682,"SIB","University of Zurich, Switzerland",3155,NA
+"66","Swiss Institute of Bioinformatics",2682,"SIB","European Molecular Biology Organization",943,NA
+"67","Swiss Institute of Bioinformatics",2682,"SIB","Foundation ProBioC, Heidelberg, Germany",1045,NA
+"69","Swiss Institute of Bioinformatics",2682,"SIB","Faculty of Health and Medical Sciences, University of Copenhagen, Copenhagen, Denmark",984,NA
+"70","Swiss Institute of Bioinformatics",2682,"SIB","Federal Ministry of Education and Research",333,NA
+"73","Swiss Institute of Bioinformatics",2682,"SIB","National Library of Medicine",2045,NA
+"75","Swiss Institute of Bioinformatics",2682,"SIB","National Institutes of Health",2035,NA
+"79","Swiss Institute of Bioinformatics",2682,"SIB","European Commission",915,NA
+"87","Swiss Institute of Bioinformatics",2682,"SIB","Federal Statistical Office",2680,NA
+"89","Swiss Institute of Bioinformatics",2682,"SIB","Biozentrum, University of Basel, Basel, Switzerland",284,NA
+"100","Swiss Institute of Bioinformatics",2682,"SIB","Public Health England",2383,NA
+"101","Swiss Institute of Bioinformatics",2682,"SIB","Genetica DNA Laboratories, Burglington, NC, USA",1103,NA
+"102","Swiss Institute of Bioinformatics",2682,"SIB","UK Global Biological Standards Institute (GBSI)",2898,NA
+"103","Swiss Institute of Bioinformatics",2682,"SIB","Promega France",2372,NA
+"105","Swiss Institute of Bioinformatics",2682,"SIB","Riken Resource Centre, Japan",2450,NA
+"106","Swiss Institute of Bioinformatics",2682,"SIB","Japanese Collection of Research Bioresources Cell Bank (JCRB Cell Bank), Osaka, Japan",1589,NA
+"107","Swiss Institute of Bioinformatics",2682,"SIB","CellBank Australia, Westmead, NSW, Australia",392,NA
+"108","Swiss Institute of Bioinformatics",2682,"SIB","ATCC Standards Development Organisation",130,NA
+"114","Swiss Institute of Bioinformatics",2682,"SIB","ELIXIR Czech Republic",840,NA
+"118","Swiss Institute of Bioinformatics",2682,"SIB","Multimodal and Functional Imaging Laboratory, Central European Institute of Technology (CEITEC), Brno, Czech Republic",1912,NA
+"120","Swiss Institute of Bioinformatics",2682,"SIB","Chinese Governement Scholarship",2267,NA
+"122","Swiss Institute of Bioinformatics",2682,"SIB","Science Foundation Ireland",2520,NA
+"125","Swiss Institute of Bioinformatics",2682,"SIB","Conway Institute of Biomolecular and Biomedical Research, University College Dublin, Belfield, Ireland",608,NA
+"127","Swiss Institute of Bioinformatics",2682,"SIB","UniProt Consortium",2916,NA
+"135","Swiss Institute of Bioinformatics",2682,"SIB","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
+"136","Swiss Institute of Bioinformatics",2682,"SIB","TDWG Consortium",2712,NA
+"138","Swiss Institute of Bioinformatics",2682,"SIB","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
+"139","Swiss Institute of Bioinformatics",2682,"SIB","India Alliance DBT Wellcome",1325,NA
+"140","Swiss Institute of Bioinformatics",2682,"SIB","Medical Research Council",1812,NA
+"141","Swiss Institute of Bioinformatics",2682,"SIB","MS Society",1908,NA
+"142","Swiss Institute of Bioinformatics",2682,"SIB","Worldwide Cancer Research",3259,NA
+"143","Swiss Institute of Bioinformatics",2682,"SIB","Global Biodiversity Information Facility",1166,NA
+"144","Swiss Institute of Bioinformatics",2682,"SIB","Cancer Research UK Manchester Institute",368,NA
+"145","Swiss Institute of Bioinformatics",2682,"SIB","The Dunhill Medical Trust",2766,NA
+"146","Swiss Institute of Bioinformatics",2682,"SIB","Telethon Foundation",2727,NA
+"147","Swiss Institute of Bioinformatics",2682,"SIB","Blood Cancer UK",287,NA
+"148","Swiss Institute of Bioinformatics",2682,"SIB","Chief Scientist Office",503,NA
+"149","Swiss Institute of Bioinformatics",2682,"SIB","Motor Neuron Disease Association",1899,NA
+"150","Swiss Institute of Bioinformatics",2682,"SIB","Prostate Cancer UK",2373,NA
+"151","Swiss Institute of Bioinformatics",2682,"SIB","Austrian Science Fund (FWF), Austria",154,NA
+"152","Swiss Institute of Bioinformatics",2682,"SIB","Action on Hearing Loss",21,NA
+"153","Swiss Institute of Bioinformatics",2682,"SIB","The Academy of Medical Sciences",2741,NA
+"154","Swiss Institute of Bioinformatics",2682,"SIB","Parkinson's Disease UK (PDUK)",2290,NA
+"155","Swiss Institute of Bioinformatics",2682,"SIB","Breast Cancer Now",307,NA
+"156","Swiss Institute of Bioinformatics",2682,"SIB","Arthritis Research UK",115,NA
+"157","Swiss Institute of Bioinformatics",2682,"SIB","National Centre for the Replacement, Refinement and Reduction of Animals in Research (NC3Rs), London, UK",1975,NA
+"158","Swiss Institute of Bioinformatics",2682,"SIB","World Health Organization (WHO)",3252,NA
+"159","Swiss Institute of Bioinformatics",2682,"SIB","National Institute for Health Research",2003,NA
+"160","Swiss Institute of Bioinformatics",2682,"SIB","Myrovlytis Trust",1924,NA
+"161","Swiss Institute of Bioinformatics",2682,"SIB","Diabetes UK",757,NA
+"162","Swiss Institute of Bioinformatics",2682,"SIB","The British Heart Foundation",2747,NA
+"163","Swiss Institute of Bioinformatics",2682,"SIB","The European Research Council (ERC)",2772,NA
+"164","Swiss Institute of Bioinformatics",2682,"SIB","Alzheimers Society",67,NA
+"165","Swiss Institute of Bioinformatics",2682,"SIB","The Wellcome Trust",2854,NA
+"167","Swiss Institute of Bioinformatics",2682,"SIB","Marie Curie",1752,NA
+"169","Swiss Institute of Bioinformatics",2682,"SIB","Plazi",3378,NA
+"170","Swiss Institute of Bioinformatics",2682,"SIB","Pensoft Publishers",2305,NA
+"171","Swiss Institute of Bioinformatics",2682,"SIB","Naturalis Biodiversity Center",2094,NA
+"173","Swiss Institute of Bioinformatics",2682,"SIB","University of Tartu, Estonia",3132,NA
+"175","Swiss Institute of Bioinformatics",2682,"SIB","LifeWatch ERIC",1717,NA
+"176","Swiss Institute of Bioinformatics",2682,"SIB","Consortium of European Taxonomic Facilities",3380,NA
+"177","Swiss Institute of Bioinformatics",2682,"SIB","Meise Botanic Garden",3379,NA
+"178","Swiss Institute of Bioinformatics",2682,"SIB","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
+"181","Swiss Institute of Bioinformatics",2682,"SIB","Stichting TDWG Europe",3385,NA
+"183","Swiss Institute of Bioinformatics",2682,"SIB","National eResearch Collaboration Tools and Resources project",1989,NA

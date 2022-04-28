@@ -1,99 +1,99 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","Global Biodiversity Information Facility",1166,"GBIF","Global Biodiversity Information Facility",1166,""
-"2","Global Biodiversity Information Facility",1166,"GBIF","SiB Colombia",2564,""
-"3","Global Biodiversity Information Facility",1166,"GBIF","Instituto Humboldt (IAvH), Bogota, Colombia",1452,""
-"4","Global Biodiversity Information Facility",1166,"GBIF","Marine Environmental Data and Information Network",1761,""
-"5","Global Biodiversity Information Facility",1166,"GBIF","LifeWatch Belgium",1716,""
-"6","Global Biodiversity Information Facility",1166,"GBIF","Pan-European Species directories Infrastructure",2289,""
-"7","Global Biodiversity Information Facility",1166,"GBIF","4D4Life project, Species 2000",8,""
-"9","Global Biodiversity Information Facility",1166,"GBIF","EMODnet Biology",855,""
-"10","Global Biodiversity Information Facility",1166,"GBIF","European Marine Biological Research Centre (EMBRC)",3338,""
-"11","Global Biodiversity Information Facility",1166,"GBIF","The Flanders Marine Institute (VLIZ), Belgium",2777,""
-"12","Global Biodiversity Information Facility",1166,"GBIF","Marine Biodiversity and Ecosystem Functioning EU Network of Excellence",1758,""
-"13","Global Biodiversity Information Facility",1166,"GBIF","Alfred P. Sloan Foundation",54,""
-"14","Global Biodiversity Information Facility",1166,"GBIF","Department of Fisheries and Oceans",710,""
-"15","Global Biodiversity Information Facility",1166,"GBIF","National Collaborative Research Infrastructure Strategy",1979,""
-"17","Global Biodiversity Information Facility",1166,"GBIF","Atlas of Living Australia, Australia",132,""
-"18","Global Biodiversity Information Facility",1166,"GBIF","Global Biodiversity Information Facility in Spain",1167,""
-"19","Global Biodiversity Information Facility",1166,"GBIF","Ministerio de Asuntos Economicos y Transformacion Digital",1852,""
-"22","Global Biodiversity Information Facility",1166,"GBIF","Canadensys, Universite de Montreal Biodiversity Centre, Montreal, QC, Canada",357,""
-"23","Global Biodiversity Information Facility",1166,"GBIF","Government of Canada",1191,""
-"25","Global Biodiversity Information Facility",1166,"GBIF","VectorBase",3180,""
-"26","Global Biodiversity Information Facility",1166,"GBIF","College of Life Sciences, University of Kwa-Zulu Natal, Durban, South Africa",557,""
-"27","Global Biodiversity Information Facility",1166,"GBIF","Imperial College London, UK",1320,""
-"28","Global Biodiversity Information Facility",1166,"GBIF","University of Tennessee",3137,""
-"29","Global Biodiversity Information Facility",1166,"GBIF","University of Florida, USA",3055,""
-"30","Global Biodiversity Information Facility",1166,"GBIF","Center for Global Health and Translational Science, State University of New York Upstate Medical University, Syracuse, NY, USA",421,""
-"31","Global Biodiversity Information Facility",1166,"GBIF","Florida Medical Entomology Lab, University of Florida-IFAS, Vero Beach, FL, USA",1021,""
-"32","Global Biodiversity Information Facility",1166,"GBIF","Institute of Biology, University of Neuchatel, Neuchatel, Switzerland",1404,""
-"33","Global Biodiversity Information Facility",1166,"GBIF","Center for Infectious Disease Dynamics, Department of Biology, The Pennsylvania State University, University Park, PA, USA",423,""
-"34","Global Biodiversity Information Facility",1166,"GBIF","Department of Zoology, Milwaukee Public Museum, Milwaukee, WI, USA",745,""
-"36","Global Biodiversity Information Facility",1166,"GBIF","Centers for Disease Control and Prevention, USA",442,""
-"37","Global Biodiversity Information Facility",1166,"GBIF","University of Buffalo, NY, USA",3025,""
-"38","Global Biodiversity Information Facility",1166,"GBIF","University of Manchester, UK",3086,""
-"39","Global Biodiversity Information Facility",1166,"GBIF","University of Arizona, United States",3013,""
-"40","Global Biodiversity Information Facility",1166,"GBIF","Cornell University, NY, USA",614,""
-"41","Global Biodiversity Information Facility",1166,"GBIF","University of California San Diego",3033,""
-"42","Global Biodiversity Information Facility",1166,"GBIF","Department of Biological Sciences, Vanderbilt University, Nashville, Tennessee, United States of America",673,""
-"43","Global Biodiversity Information Facility",1166,"GBIF","University of Illinois at Urbana-Champaign, Urbana-Champaign, Illinois, USA",3068,""
-"44","Global Biodiversity Information Facility",1166,"GBIF","GBIF Norway",1094,""
-"46","Global Biodiversity Information Facility",1166,"GBIF","Alfred Wegener Institute, Helmholtz Center for Polar and Marine Research",56,""
-"47","Global Biodiversity Information Facility",1166,"GBIF","Cyverse, United States",631,""
-"48","Global Biodiversity Information Facility",1166,"GBIF","Smithsonian National Museum of Natural History, Washington DC, USA",2579,""
-"49","Global Biodiversity Information Facility",1166,"GBIF","California Academy of Sciences, San Francisco, CA, USA",338,""
-"51","Global Biodiversity Information Facility",1166,"GBIF","University of California Berkeley, Berkeley, California, USA",3028,""
-"52","Global Biodiversity Information Facility",1166,"GBIF","Gonzaga University, Spokane, Washington, USA",1188,""
-"53","Global Biodiversity Information Facility",1166,"GBIF","Biodiversity Institute of Ontario, University of Guelph, Guelph, ON, Canada",229,""
-"54","Global Biodiversity Information Facility",1166,"GBIF","National Center for Ecological Analysis and Synthesis (NCEAS), Santa Barbara, CA, USA",1961,""
-"55","Global Biodiversity Information Facility",1166,"GBIF","University of Colorado Boulder, USA",3044,""
-"56","Global Biodiversity Information Facility",1166,"GBIF","Kansas State University, Manhattan, KS, USA",1622,""
-"58","Global Biodiversity Information Facility",1166,"GBIF","Community Research and Development Information Service",913,""
-"60","Global Biodiversity Information Facility",1166,"GBIF","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,""
-"62","Global Biodiversity Information Facility",1166,"GBIF","New York Botanical Garden",2153,""
-"63","Global Biodiversity Information Facility",1166,"GBIF","European Bioinformatics Institute, Wellcome Genome Campus",908,""
-"64","Global Biodiversity Information Facility",1166,"GBIF","Swiss National Science Foundation",2684,""
-"66","Global Biodiversity Information Facility",1166,"GBIF","TDWG Consortium",2712,""
-"67","Global Biodiversity Information Facility",1166,"GBIF","Swiss Institute of Bioinformatics",2682,""
-"68","Global Biodiversity Information Facility",1166,"GBIF","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,""
-"69","Global Biodiversity Information Facility",1166,"GBIF","India Alliance DBT Wellcome",1325,""
-"70","Global Biodiversity Information Facility",1166,"GBIF","Medical Research Council",1812,""
-"71","Global Biodiversity Information Facility",1166,"GBIF","MS Society",1908,""
-"72","Global Biodiversity Information Facility",1166,"GBIF","Worldwide Cancer Research",3259,""
-"74","Global Biodiversity Information Facility",1166,"GBIF","Cancer Research UK Manchester Institute",368,""
-"75","Global Biodiversity Information Facility",1166,"GBIF","The Dunhill Medical Trust",2766,""
-"76","Global Biodiversity Information Facility",1166,"GBIF","Telethon Foundation",2727,""
-"77","Global Biodiversity Information Facility",1166,"GBIF","Blood Cancer UK",287,""
-"78","Global Biodiversity Information Facility",1166,"GBIF","Chief Scientist Office",503,""
-"79","Global Biodiversity Information Facility",1166,"GBIF","Motor Neuron Disease Association",1899,""
-"80","Global Biodiversity Information Facility",1166,"GBIF","Prostate Cancer UK",2373,""
-"81","Global Biodiversity Information Facility",1166,"GBIF","Austrian Science Fund (FWF), Austria",154,""
-"82","Global Biodiversity Information Facility",1166,"GBIF","Action on Hearing Loss",21,""
-"83","Global Biodiversity Information Facility",1166,"GBIF","The Academy of Medical Sciences",2741,""
-"84","Global Biodiversity Information Facility",1166,"GBIF","Parkinson's Disease UK (PDUK)",2290,""
-"85","Global Biodiversity Information Facility",1166,"GBIF","Breast Cancer Now",307,""
-"86","Global Biodiversity Information Facility",1166,"GBIF","Arthritis Research UK",115,""
-"87","Global Biodiversity Information Facility",1166,"GBIF","National Centre for the Replacement, Refinement and Reduction of Animals in Research (NC3Rs), London, UK",1975,""
-"88","Global Biodiversity Information Facility",1166,"GBIF","World Health Organization (WHO)",3252,""
-"89","Global Biodiversity Information Facility",1166,"GBIF","National Institute for Health Research",2003,""
-"90","Global Biodiversity Information Facility",1166,"GBIF","Myrovlytis Trust",1924,""
-"91","Global Biodiversity Information Facility",1166,"GBIF","Diabetes UK",757,""
-"92","Global Biodiversity Information Facility",1166,"GBIF","The British Heart Foundation",2747,""
-"93","Global Biodiversity Information Facility",1166,"GBIF","The European Research Council (ERC)",2772,""
-"94","Global Biodiversity Information Facility",1166,"GBIF","Alzheimers Society",67,""
-"95","Global Biodiversity Information Facility",1166,"GBIF","The Wellcome Trust",2854,""
-"96","Global Biodiversity Information Facility",1166,"GBIF","Biotechnology and Biological Sciences Research Council",278,""
-"97","Global Biodiversity Information Facility",1166,"GBIF","Marie Curie",1752,""
-"99","Global Biodiversity Information Facility",1166,"GBIF","Plazi",3378,""
-"100","Global Biodiversity Information Facility",1166,"GBIF","Pensoft Publishers",2305,""
-"101","Global Biodiversity Information Facility",1166,"GBIF","Naturalis Biodiversity Center",2094,""
-"103","Global Biodiversity Information Facility",1166,"GBIF","University of Tartu, Estonia",3132,""
-"105","Global Biodiversity Information Facility",1166,"GBIF","LifeWatch ERIC",1717,""
-"106","Global Biodiversity Information Facility",1166,"GBIF","Consortium of European Taxonomic Facilities",3380,""
-"107","Global Biodiversity Information Facility",1166,"GBIF","Meise Botanic Garden",3379,""
-"108","Global Biodiversity Information Facility",1166,"GBIF","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,""
-"111","Global Biodiversity Information Facility",1166,"GBIF","Stichting TDWG Europe",3385,""
-"117","Global Biodiversity Information Facility",1166,"GBIF","International Barcode of Life",3476,""
-"118","Global Biodiversity Information Facility",1166,"GBIF","Government of Ontario",3478,""
-"119","Global Biodiversity Information Facility",1166,"GBIF","Canada First Research Excellence Fund",3477,""
-"120","Global Biodiversity Information Facility",1166,"GBIF","Canada Foundation for Innovation",354,""
-"121","Global Biodiversity Information Facility",1166,"GBIF","Natural Sciences and Engineering Research Council of Canada",2101,""
+"1","Global Biodiversity Information Facility",1166,"GBIF","Global Biodiversity Information Facility",1166,"GBIF"
+"2","Global Biodiversity Information Facility",1166,"GBIF","SiB Colombia",2564,NA
+"3","Global Biodiversity Information Facility",1166,"GBIF","Instituto Humboldt (IAvH), Bogota, Colombia",1452,NA
+"4","Global Biodiversity Information Facility",1166,"GBIF","Marine Environmental Data and Information Network",1761,NA
+"5","Global Biodiversity Information Facility",1166,"GBIF","LifeWatch Belgium",1716,NA
+"6","Global Biodiversity Information Facility",1166,"GBIF","Pan-European Species directories Infrastructure",2289,NA
+"7","Global Biodiversity Information Facility",1166,"GBIF","4D4Life project, Species 2000",8,NA
+"9","Global Biodiversity Information Facility",1166,"GBIF","EMODnet Biology",855,NA
+"10","Global Biodiversity Information Facility",1166,"GBIF","European Marine Biological Research Centre (EMBRC)",3338,NA
+"11","Global Biodiversity Information Facility",1166,"GBIF","The Flanders Marine Institute (VLIZ), Belgium",2777,NA
+"12","Global Biodiversity Information Facility",1166,"GBIF","Marine Biodiversity and Ecosystem Functioning EU Network of Excellence",1758,NA
+"13","Global Biodiversity Information Facility",1166,"GBIF","Alfred P. Sloan Foundation",54,NA
+"14","Global Biodiversity Information Facility",1166,"GBIF","Department of Fisheries and Oceans",710,NA
+"15","Global Biodiversity Information Facility",1166,"GBIF","National Collaborative Research Infrastructure Strategy",1979,NA
+"17","Global Biodiversity Information Facility",1166,"GBIF","Atlas of Living Australia, Australia",132,NA
+"18","Global Biodiversity Information Facility",1166,"GBIF","Global Biodiversity Information Facility in Spain",1167,NA
+"19","Global Biodiversity Information Facility",1166,"GBIF","Ministerio de Asuntos Economicos y Transformacion Digital",1852,NA
+"22","Global Biodiversity Information Facility",1166,"GBIF","Canadensys, Universite de Montreal Biodiversity Centre, Montreal, QC, Canada",357,NA
+"23","Global Biodiversity Information Facility",1166,"GBIF","Government of Canada",1191,NA
+"25","Global Biodiversity Information Facility",1166,"GBIF","VectorBase",3180,NA
+"26","Global Biodiversity Information Facility",1166,"GBIF","College of Life Sciences, University of Kwa-Zulu Natal, Durban, South Africa",557,NA
+"27","Global Biodiversity Information Facility",1166,"GBIF","Imperial College London, UK",1320,NA
+"28","Global Biodiversity Information Facility",1166,"GBIF","University of Tennessee",3137,NA
+"29","Global Biodiversity Information Facility",1166,"GBIF","University of Florida, USA",3055,NA
+"30","Global Biodiversity Information Facility",1166,"GBIF","Center for Global Health and Translational Science, State University of New York Upstate Medical University, Syracuse, NY, USA",421,NA
+"31","Global Biodiversity Information Facility",1166,"GBIF","Florida Medical Entomology Lab, University of Florida-IFAS, Vero Beach, FL, USA",1021,NA
+"32","Global Biodiversity Information Facility",1166,"GBIF","Institute of Biology, University of Neuchatel, Neuchatel, Switzerland",1404,NA
+"33","Global Biodiversity Information Facility",1166,"GBIF","Center for Infectious Disease Dynamics, Department of Biology, The Pennsylvania State University, University Park, PA, USA",423,NA
+"34","Global Biodiversity Information Facility",1166,"GBIF","Department of Zoology, Milwaukee Public Museum, Milwaukee, WI, USA",745,NA
+"36","Global Biodiversity Information Facility",1166,"GBIF","Centers for Disease Control and Prevention, USA",442,NA
+"37","Global Biodiversity Information Facility",1166,"GBIF","University of Buffalo, NY, USA",3025,NA
+"38","Global Biodiversity Information Facility",1166,"GBIF","University of Manchester, UK",3086,NA
+"39","Global Biodiversity Information Facility",1166,"GBIF","University of Arizona, United States",3013,NA
+"40","Global Biodiversity Information Facility",1166,"GBIF","Cornell University, NY, USA",614,NA
+"41","Global Biodiversity Information Facility",1166,"GBIF","University of California San Diego",3033,NA
+"42","Global Biodiversity Information Facility",1166,"GBIF","Department of Biological Sciences, Vanderbilt University, Nashville, Tennessee, United States of America",673,NA
+"43","Global Biodiversity Information Facility",1166,"GBIF","University of Illinois at Urbana-Champaign, Urbana-Champaign, Illinois, USA",3068,NA
+"44","Global Biodiversity Information Facility",1166,"GBIF","GBIF Norway",1094,NA
+"46","Global Biodiversity Information Facility",1166,"GBIF","Alfred Wegener Institute, Helmholtz Center for Polar and Marine Research",56,NA
+"47","Global Biodiversity Information Facility",1166,"GBIF","Cyverse, United States",631,NA
+"48","Global Biodiversity Information Facility",1166,"GBIF","Smithsonian National Museum of Natural History, Washington DC, USA",2579,NA
+"49","Global Biodiversity Information Facility",1166,"GBIF","California Academy of Sciences, San Francisco, CA, USA",338,NA
+"51","Global Biodiversity Information Facility",1166,"GBIF","University of California Berkeley, Berkeley, California, USA",3028,NA
+"52","Global Biodiversity Information Facility",1166,"GBIF","Gonzaga University, Spokane, Washington, USA",1188,NA
+"53","Global Biodiversity Information Facility",1166,"GBIF","Biodiversity Institute of Ontario, University of Guelph, Guelph, ON, Canada",229,NA
+"54","Global Biodiversity Information Facility",1166,"GBIF","National Center for Ecological Analysis and Synthesis (NCEAS), Santa Barbara, CA, USA",1961,NA
+"55","Global Biodiversity Information Facility",1166,"GBIF","University of Colorado Boulder, USA",3044,NA
+"56","Global Biodiversity Information Facility",1166,"GBIF","Kansas State University, Manhattan, KS, USA",1622,NA
+"58","Global Biodiversity Information Facility",1166,"GBIF","Community Research and Development Information Service",913,NA
+"60","Global Biodiversity Information Facility",1166,"GBIF","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
+"62","Global Biodiversity Information Facility",1166,"GBIF","New York Botanical Garden",2153,NA
+"63","Global Biodiversity Information Facility",1166,"GBIF","European Bioinformatics Institute, Wellcome Genome Campus",908,NA
+"64","Global Biodiversity Information Facility",1166,"GBIF","Swiss National Science Foundation",2684,NA
+"66","Global Biodiversity Information Facility",1166,"GBIF","TDWG Consortium",2712,NA
+"67","Global Biodiversity Information Facility",1166,"GBIF","Swiss Institute of Bioinformatics",2682,NA
+"68","Global Biodiversity Information Facility",1166,"GBIF","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
+"69","Global Biodiversity Information Facility",1166,"GBIF","India Alliance DBT Wellcome",1325,NA
+"70","Global Biodiversity Information Facility",1166,"GBIF","Medical Research Council",1812,NA
+"71","Global Biodiversity Information Facility",1166,"GBIF","MS Society",1908,NA
+"72","Global Biodiversity Information Facility",1166,"GBIF","Worldwide Cancer Research",3259,NA
+"74","Global Biodiversity Information Facility",1166,"GBIF","Cancer Research UK Manchester Institute",368,NA
+"75","Global Biodiversity Information Facility",1166,"GBIF","The Dunhill Medical Trust",2766,NA
+"76","Global Biodiversity Information Facility",1166,"GBIF","Telethon Foundation",2727,NA
+"77","Global Biodiversity Information Facility",1166,"GBIF","Blood Cancer UK",287,NA
+"78","Global Biodiversity Information Facility",1166,"GBIF","Chief Scientist Office",503,NA
+"79","Global Biodiversity Information Facility",1166,"GBIF","Motor Neuron Disease Association",1899,NA
+"80","Global Biodiversity Information Facility",1166,"GBIF","Prostate Cancer UK",2373,NA
+"81","Global Biodiversity Information Facility",1166,"GBIF","Austrian Science Fund (FWF), Austria",154,NA
+"82","Global Biodiversity Information Facility",1166,"GBIF","Action on Hearing Loss",21,NA
+"83","Global Biodiversity Information Facility",1166,"GBIF","The Academy of Medical Sciences",2741,NA
+"84","Global Biodiversity Information Facility",1166,"GBIF","Parkinson's Disease UK (PDUK)",2290,NA
+"85","Global Biodiversity Information Facility",1166,"GBIF","Breast Cancer Now",307,NA
+"86","Global Biodiversity Information Facility",1166,"GBIF","Arthritis Research UK",115,NA
+"87","Global Biodiversity Information Facility",1166,"GBIF","National Centre for the Replacement, Refinement and Reduction of Animals in Research (NC3Rs), London, UK",1975,NA
+"88","Global Biodiversity Information Facility",1166,"GBIF","World Health Organization (WHO)",3252,NA
+"89","Global Biodiversity Information Facility",1166,"GBIF","National Institute for Health Research",2003,NA
+"90","Global Biodiversity Information Facility",1166,"GBIF","Myrovlytis Trust",1924,NA
+"91","Global Biodiversity Information Facility",1166,"GBIF","Diabetes UK",757,NA
+"92","Global Biodiversity Information Facility",1166,"GBIF","The British Heart Foundation",2747,NA
+"93","Global Biodiversity Information Facility",1166,"GBIF","The European Research Council (ERC)",2772,NA
+"94","Global Biodiversity Information Facility",1166,"GBIF","Alzheimers Society",67,NA
+"95","Global Biodiversity Information Facility",1166,"GBIF","The Wellcome Trust",2854,NA
+"96","Global Biodiversity Information Facility",1166,"GBIF","Biotechnology and Biological Sciences Research Council",278,NA
+"97","Global Biodiversity Information Facility",1166,"GBIF","Marie Curie",1752,NA
+"99","Global Biodiversity Information Facility",1166,"GBIF","Plazi",3378,NA
+"100","Global Biodiversity Information Facility",1166,"GBIF","Pensoft Publishers",2305,NA
+"101","Global Biodiversity Information Facility",1166,"GBIF","Naturalis Biodiversity Center",2094,NA
+"103","Global Biodiversity Information Facility",1166,"GBIF","University of Tartu, Estonia",3132,NA
+"105","Global Biodiversity Information Facility",1166,"GBIF","LifeWatch ERIC",1717,NA
+"106","Global Biodiversity Information Facility",1166,"GBIF","Consortium of European Taxonomic Facilities",3380,NA
+"107","Global Biodiversity Information Facility",1166,"GBIF","Meise Botanic Garden",3379,NA
+"108","Global Biodiversity Information Facility",1166,"GBIF","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
+"111","Global Biodiversity Information Facility",1166,"GBIF","Stichting TDWG Europe",3385,NA
+"117","Global Biodiversity Information Facility",1166,"GBIF","International Barcode of Life",3476,NA
+"118","Global Biodiversity Information Facility",1166,"GBIF","Government of Ontario",3478,NA
+"119","Global Biodiversity Information Facility",1166,"GBIF","Canada First Research Excellence Fund",3477,NA
+"120","Global Biodiversity Information Facility",1166,"GBIF","Canada Foundation for Innovation",354,NA
+"121","Global Biodiversity Information Facility",1166,"GBIF","Natural Sciences and Engineering Research Council of Canada",2101,NA

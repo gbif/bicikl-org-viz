@@ -55,12 +55,19 @@ server <- function(input, output) {
         
         # Remove unnecessary columns from the dataframe
         dataTable$X <- NULL
-        dataTable$organisation_id.x <- NULL
-        dataTable$organisation_name.x <- NULL
-        dataTable$organisation_abbr.x <- NULL
         
-        # Renaming column names
-        colnames(dataTable) <- c('Organisation Name', 'ID', 'Abbr')
+        # Prepare dataTable depending of the depth level
+        if (input$filter_depth == 1) {
+            dataTable$organisation_id.x <- NULL
+            dataTable$organisation_name.x <- NULL
+            dataTable$organisation_abbr.x <- NULL
+            
+            # Renaming column names
+            colnames(dataTable) <- c('Related To', 'ID', 'Abbr')
+        } else {
+            # Renaming column names
+            colnames(dataTable) <- c('From', 'From ID', 'From Abbr', 'To', 'To ID', 'To Abbr')            
+        }
         
         # Rendering the final table
         output$relationships_table <- renderDataTable(unique(dataTable))
