@@ -1,17 +1,15 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","Meise Botanic Garden",3379,"Plantentuin Meise","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
-"2","Meise Botanic Garden",3379,"Plantentuin Meise","Plazi",3378,NA
-"3","Meise Botanic Garden",3379,"Plantentuin Meise","Pensoft Publishers",2305,NA
-"4","Meise Botanic Garden",3379,"Plantentuin Meise","Naturalis Biodiversity Center",2094,NA
-"5","Meise Botanic Garden",3379,"Plantentuin Meise","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
-"6","Meise Botanic Garden",3379,"Plantentuin Meise","University of Tartu, Estonia",3132,NA
-"7","Meise Botanic Garden",3379,"Plantentuin Meise","Global Biodiversity Information Facility",1166,NA
-"8","Meise Botanic Garden",3379,"Plantentuin Meise","LifeWatch ERIC",1717,NA
-"9","Meise Botanic Garden",3379,"Plantentuin Meise","Consortium of European Taxonomic Facilities",3380,NA
-"10","Meise Botanic Garden",3379,"Plantentuin Meise","Meise Botanic Garden",3379,"Plantentuin Meise"
-"11","Meise Botanic Garden",3379,"Plantentuin Meise","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
-"12","Meise Botanic Garden",3379,"Plantentuin Meise","Swiss Institute of Bioinformatics",2682,NA
-"13","Meise Botanic Garden",3379,"Plantentuin Meise","European Bioinformatics Institute, Wellcome Genome Campus",908,NA
-"14","Meise Botanic Garden",3379,"Plantentuin Meise","Stichting TDWG Europe",3385,NA
-"15","Meise Botanic Garden",3379,"MBG","Vlaanderen is innovatie",3467,NA
-"16","Meise Botanic Garden",3379,"MBG","Meise Botanic Garden",3379,"MBG"
+"1","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,"CERN"
+"2","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Plazi",3378,"P"
+"3","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Pensoft Publishers",2305,"PP"
+"4","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Naturalis Biodiversity Center",2094,"NBC"
+"5","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,"SSNBCLTN"
+"6","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","University of Tartu, Estonia",3132,"UOTE"
+"7","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Global Biodiversity Information Facility",1166,"GBIF"
+"8","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","LifeWatch ERIC",1717,"LE"
+"9","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Consortium of European Taxonomic Facilities",3380,"CETAF"
+"11","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM"
+"12","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Swiss Institute of Bioinformatics",2682,"SIB"
+"13","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","European Bioinformatics Institute, Wellcome Genome Campus",908,"EMBL-EBI"
+"14","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Stichting TDWG Europe",3385,"STE"
+"15","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")","Vlaanderen is innovatie",3467,"VII"
