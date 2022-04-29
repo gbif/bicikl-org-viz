@@ -1,16 +1,15 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","University of Tartu, Estonia",3132,NA,"University of Tartu, Estonia",3132,NA
-"2","University of Tartu, Estonia",3132,NA,"DataCite",647,NA
-"4","University of Tartu, Estonia",3132,NA,"European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
-"5","University of Tartu, Estonia",3132,NA,"Plazi",3378,NA
-"6","University of Tartu, Estonia",3132,NA,"Pensoft Publishers",2305,NA
-"7","University of Tartu, Estonia",3132,NA,"Naturalis Biodiversity Center",2094,NA
-"8","University of Tartu, Estonia",3132,NA,"Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
-"10","University of Tartu, Estonia",3132,NA,"Global Biodiversity Information Facility",1166,NA
-"11","University of Tartu, Estonia",3132,NA,"LifeWatch ERIC",1717,NA
-"12","University of Tartu, Estonia",3132,NA,"Consortium of European Taxonomic Facilities",3380,NA
-"13","University of Tartu, Estonia",3132,NA,"Meise Botanic Garden",3379,NA
-"14","University of Tartu, Estonia",3132,NA,"Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
-"15","University of Tartu, Estonia",3132,NA,"Swiss Institute of Bioinformatics",2682,NA
-"16","University of Tartu, Estonia",3132,NA,"European Bioinformatics Institute, Wellcome Genome Campus",908,NA
-"17","University of Tartu, Estonia",3132,NA,"Stichting TDWG Europe",3385,NA
+"2","University of Tartu, Estonia",3132,"UOTE","DataCite",647,"D"
+"4","University of Tartu, Estonia",3132,"UOTE","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,"CERN"
+"5","University of Tartu, Estonia",3132,"UOTE","Plazi",3378,"P"
+"6","University of Tartu, Estonia",3132,"UOTE","Pensoft Publishers",2305,"PP"
+"7","University of Tartu, Estonia",3132,"UOTE","Naturalis Biodiversity Center",2094,"NBC"
+"8","University of Tartu, Estonia",3132,"UOTE","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,"SSNBCLTN"
+"10","University of Tartu, Estonia",3132,"UOTE","Global Biodiversity Information Facility",1166,"GBIF"
+"11","University of Tartu, Estonia",3132,"UOTE","LifeWatch ERIC",1717,"LE"
+"12","University of Tartu, Estonia",3132,"UOTE","Consortium of European Taxonomic Facilities",3380,"CETAF"
+"13","University of Tartu, Estonia",3132,"UOTE","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")"
+"14","University of Tartu, Estonia",3132,"UOTE","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM"
+"15","University of Tartu, Estonia",3132,"UOTE","Swiss Institute of Bioinformatics",2682,"SIB"
+"16","University of Tartu, Estonia",3132,"UOTE","European Bioinformatics Institute, Wellcome Genome Campus",908,"EMBL-EBI"
+"17","University of Tartu, Estonia",3132,"UOTE","Stichting TDWG Europe",3385,"STE"

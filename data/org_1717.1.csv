@@ -1,15 +1,14 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","LifeWatch ERIC",1717,NA,"LifeWatch ERIC",1717,NA
-"2","LifeWatch ERIC",1717,NA,"European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
-"3","LifeWatch ERIC",1717,NA,"Plazi",3378,NA
-"4","LifeWatch ERIC",1717,NA,"Pensoft Publishers",2305,NA
-"5","LifeWatch ERIC",1717,NA,"Naturalis Biodiversity Center",2094,NA
-"6","LifeWatch ERIC",1717,NA,"Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
-"7","LifeWatch ERIC",1717,NA,"University of Tartu, Estonia",3132,NA
-"8","LifeWatch ERIC",1717,NA,"Global Biodiversity Information Facility",1166,NA
-"10","LifeWatch ERIC",1717,NA,"Consortium of European Taxonomic Facilities",3380,NA
-"11","LifeWatch ERIC",1717,NA,"Meise Botanic Garden",3379,NA
-"12","LifeWatch ERIC",1717,NA,"Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
-"13","LifeWatch ERIC",1717,NA,"Swiss Institute of Bioinformatics",2682,NA
-"14","LifeWatch ERIC",1717,NA,"European Bioinformatics Institute, Wellcome Genome Campus",908,NA
-"15","LifeWatch ERIC",1717,NA,"Stichting TDWG Europe",3385,NA
+"2","LifeWatch ERIC",1717,"LE","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,"CERN"
+"3","LifeWatch ERIC",1717,"LE","Plazi",3378,"P"
+"4","LifeWatch ERIC",1717,"LE","Pensoft Publishers",2305,"PP"
+"5","LifeWatch ERIC",1717,"LE","Naturalis Biodiversity Center",2094,"NBC"
+"6","LifeWatch ERIC",1717,"LE","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,"SSNBCLTN"
+"7","LifeWatch ERIC",1717,"LE","University of Tartu, Estonia",3132,"UOTE"
+"8","LifeWatch ERIC",1717,"LE","Global Biodiversity Information Facility",1166,"GBIF"
+"10","LifeWatch ERIC",1717,"LE","Consortium of European Taxonomic Facilities",3380,"CETAF"
+"11","LifeWatch ERIC",1717,"LE","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")"
+"12","LifeWatch ERIC",1717,"LE","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM"
+"13","LifeWatch ERIC",1717,"LE","Swiss Institute of Bioinformatics",2682,"SIB"
+"14","LifeWatch ERIC",1717,"LE","European Bioinformatics Institute, Wellcome Genome Campus",908,"EMBL-EBI"
+"15","LifeWatch ERIC",1717,"LE","Stichting TDWG Europe",3385,"STE"

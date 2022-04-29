@@ -1,25 +1,24 @@
 "","organisation_name.x","organisation_id.x","organisation_abbr.x","organisation_name.y","organisation_id.y","organisation_abbr.y"
-"1","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA
-"2","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Global Genome Biodiversity Network (GGBN)",1172,NA
-"3","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"State Museums of Natural History Karlsruhe (SMNK), Germany",2633,NA
-"4","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Deutsche Forschungsgemeinschaft",749,NA
-"5","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"State Museum of Natural History Stuttgart (SMNS), Germany",2632,NA
-"6","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Bavarian Natural History Collections, SNSB IT Center, Germany",174,NA
-"7","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Zoological Research Museum Alexander Koenig (ZFMK), Bonn, Germany",3279,NA
-"9","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Friedrich Schiller University Jena",1064,NA
-"10","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Naturhistorisches Musuem Wien",2104,NA
-"12","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Austrian Academy of Sciences",152,NA
-"13","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Department of Microbiology and Ecosystem Science, University of Vienna",3146,NA
-"14","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,NA
-"15","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Plazi",3378,NA
-"16","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Pensoft Publishers",2305,NA
-"17","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Naturalis Biodiversity Center",2094,NA
-"18","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,NA
-"19","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"University of Tartu, Estonia",3132,NA
-"20","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Global Biodiversity Information Facility",1166,NA
-"21","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"LifeWatch ERIC",1717,NA
-"22","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Consortium of European Taxonomic Facilities",3380,NA
-"23","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Meise Botanic Garden",3379,NA
-"25","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Swiss Institute of Bioinformatics",2682,NA
-"26","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"European Bioinformatics Institute, Wellcome Genome Campus",908,NA
-"27","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,NA,"Stichting TDWG Europe",3385,NA
+"2","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Global Genome Biodiversity Network (GGBN)",1172,"GGBN"
+"3","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","State Museums of Natural History Karlsruhe (SMNK), Germany",2633,"SMNK"
+"4","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Deutsche Forschungsgemeinschaft",749,"DFG"
+"5","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","State Museum of Natural History Stuttgart (SMNS), Germany",2632,"SMNS"
+"6","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Bavarian Natural History Collections, SNSB IT Center, Germany",174,"BNHCSICG"
+"7","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Zoological Research Museum Alexander Koenig (ZFMK), Bonn, Germany",3279,"ZFMK"
+"9","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Friedrich Schiller University Jena",1064,"FSUJ"
+"10","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Naturhistorisches Musuem Wien",2104,"NMW"
+"12","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Austrian Academy of Sciences",152,"AAOS"
+"13","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Department of Microbiology and Ecosystem Science, University of Vienna",3146,"DOMAESUOV"
+"14","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","European Organisation for Nuclear Research (CERN), Geneva, Switzerland",947,"CERN"
+"15","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Plazi",3378,"P"
+"16","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Pensoft Publishers",2305,"PP"
+"17","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Naturalis Biodiversity Center",2094,"NBC"
+"18","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Species 2000 Secretariat, Naturalis Biodiversity Center, Leiden, The Netherlands",2614,"SSNBCLTN"
+"19","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","University of Tartu, Estonia",3132,"UOTE"
+"20","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Global Biodiversity Information Facility",1166,"GBIF"
+"21","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","LifeWatch ERIC",1717,"LE"
+"22","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Consortium of European Taxonomic Facilities",3380,"CETAF"
+"23","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Meise Botanic Garden",3379,"c(""Plantentuin Meise"", ""MBG"")"
+"25","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Swiss Institute of Bioinformatics",2682,"SIB"
+"26","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","European Bioinformatics Institute, Wellcome Genome Campus",908,"EMBL-EBI"
+"27","Botanic Garden and Botanical Museum Berlin-Dahlem (BGBM), Germany",302,"BGBM","Stichting TDWG Europe",3385,"STE"
