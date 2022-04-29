@@ -29,6 +29,8 @@ get_dataframe <- function(org_id = 0,level = 1) {
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+    # Custom CSS
+    includeCSS('www/style.css'),
 
     # Application title
     titlePanel("GBIF Organization Relationships"),
@@ -45,7 +47,8 @@ ui <- fluidPage(
         mainPanel(
             dataTableOutput('relationships_table')
         )
-    )
+    ),
+    includeHTML('www/footer.html')
 )
 
 # Define server logic required to draw a histogram
@@ -62,15 +65,29 @@ server <- function(input, output) {
             dataTable$organisation_name.x <- NULL
             dataTable$organisation_abbr.x <- NULL
             
+            # Sorting by related organization name
+            dataTable <- dataTable[order(dataTable$organisation_name.y),]
+            
+            # Create valid organization URL in Y
+            dataTable$organisation_name.y <- paste('<a href="https://fairsharing.org/organisations/',dataTable$organisation_id.y,'" target="_blank">',dataTable$organisation_name.y,'</a>', sep='')
+            
             # Renaming column names
             colnames(dataTable) <- c('Related To', 'ID', 'Abbr')
+            
         } else {
+            # Sorting by related organization name
+            dataTable <- dataTable[order(dataTable$organisation_name.x,dataTable$organisation_name.y),]
+            
+            # Create valid organization URL in X and Y
+            dataTable$organisation_name.x <- paste('<a href="https://fairsharing.org/organisations/',dataTable$organisation_id.x,'" target="_blank">',dataTable$organisation_name.x,'</a>', sep='')
+            dataTable$organisation_name.y <- paste('<a href="https://fairsharing.org/organisations/',dataTable$organisation_id.y,'" target="_blank">',dataTable$organisation_name.y,'</a>', sep='')
+            
             # Renaming column names
             colnames(dataTable) <- c('From', 'From ID', 'From Abbr', 'To', 'To ID', 'To Abbr')            
         }
         
         # Rendering the final table
-        output$relationships_table <- renderDataTable(unique(dataTable))
+        output$relationships_table <- renderDataTable(dataTable,escape = FALSE)
     })
 
     

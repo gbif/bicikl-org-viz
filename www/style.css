@@ -1,0 +1,16 @@
+body {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color:#4a4a4a;
+}
+a {
+  color: #4787fb;
+}
+a:hover {
+  color: #3a3a3a;
+  text-decoration: none;
+}
+.footer {
+  background: #242021;
+  padding: 12px;
+  text-align: center;
+}
