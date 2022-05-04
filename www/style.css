@@ -10,10 +10,14 @@ a:hover {
   text-decoration: none;
 }
 .footer {
+  margin-top: 4em;
   background: #242021;
   padding: 12px;
   text-align: center;
 }
 .logo {
   height: 40px;
+}
+#relationships_table {
+  margin-top: 1em;
 }

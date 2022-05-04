@@ -5,9 +5,9 @@ account: extendo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6172175
-bundleId: 5860633
+bundleId: 5866805
 url: https://extendo.shinyapps.io/gbif-org-relationship-visualization/
-when: 1651503228.53036
-lastSyncTime: 1651503228.53038
+when: 1651624455.5573
+lastSyncTime: 1651624455.55731
 asMultiple: FALSE
 asStatic: FALSE
