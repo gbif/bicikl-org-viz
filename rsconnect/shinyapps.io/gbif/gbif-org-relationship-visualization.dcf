@@ -1,13 +1,13 @@
 name: gbif-org-relationship-visualization
 title: gbif-org-relationship-visualization
 username:
-account: extendo
+account: gbif
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 6172175
-bundleId: 5875294
-url: https://extendo.shinyapps.io/gbif-org-relationship-visualization/
-when: 1651792964.80208
-lastSyncTime: 1651792964.80209
+appId: 6335062
+bundleId: 5924379
+url: https://gbif.shinyapps.io/gbif-org-relationship-visualization/
+when: 1652992918.64546
+lastSyncTime: 1652992918.64547
 asMultiple: FALSE
 asStatic: FALSE
