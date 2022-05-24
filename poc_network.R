@@ -1,15 +1,24 @@
 # POC: Visualizing network of relationships between organizations
 
 library(igraph)    # network library
+
 library(tidyverse) # tidy style
-library(sigmajs) # visualize network
+
+library(sigmajs) # visualize network: http://sigmajs.john-coene.com/
+
 library(skimr) # describe data
+
 library(readr) # read data
+
 library(abbreviate) # to get unique abbreviations
-library(threejs)
+
+library(threejs) # another visualization library: https://bwlewis.github.io/rthreejs/
+
+# There are many possible choices for visualization libraries besides the ones
+# tested here: visNetwork, gggraph, networkD3, ggnet, statnet.....  
 
 # Read data
-# Example with LifeWatch ERIC (organisation 1717, abbreviate it LifeWa)
+# Example with LifeWatch ERIC (organisation 1717, abbreviated as it LifeWa)
 org_1717_2 <- read_csv("data/org_1717.2.csv")
 org_list <- read_csv("data/org_list.csv")
 
