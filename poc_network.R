@@ -15,7 +15,7 @@ library(abbreviate) # to get unique abbreviations
 library(threejs) # another visualization library: https://bwlewis.github.io/rthreejs/
 
 # There are many possible choices for visualization libraries besides the ones
-# tested here: visNetwork, gggraph, networkD3, ggnet, statnet.....  
+# tested here: visNetwork, gggraph, networkD3, ggnet, statnet, among others  
 
 # Read data
 # Example with LifeWatch ERIC (organisation 1717, abbreviated as it LifeWa)
@@ -88,7 +88,9 @@ sigmajs() %>%
 
 
 # If using igraph
-x <- fastgreedy.community(network)
+
+color_pal3 <- rainbow(3, alpha=.5) 
+
 x_comun <- edge.betweenness.community(network)
 i <- membership(x_comun)
 g <- set_vertex_attr(network, "color", value = color_pal3[i])
