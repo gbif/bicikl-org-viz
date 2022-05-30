@@ -19,6 +19,7 @@ library(threejs) # another visualization library: https://bwlewis.github.io/rthr
 
 # Read data
 # Example with LifeWatch ERIC (organisation 1717, abbreviated as it LifeWa)
+org_1717_1 <- read_csv("data/org_1717.1.csv")
 org_1717_2 <- read_csv("data/org_1717.2.csv")
 org_list <- read_csv("data/org_list.csv")
 
@@ -76,20 +77,20 @@ sigmajs() %>%
   sg_from_igraph(network) %>%
   #sg_settings(drawLabels = TRUE, drawEdgeLabels = FALSE) %>% 
   sg_layout(layout = igraph::layout_nicely) %>%
-  sg_cluster(colors = color_pal2)  %>%
+  sg_cluster(colors = hcl.colors(10,"Set 2"))  %>%
   sg_settings(
     minNodeSize = 1,
     maxNodeSize = 5.0,
     edgeColor = "default",
     defaultEdgeColor = "#d3d3d3",
-    labelThreshold = 5
+    labelThreshold = 3
   ) %>%
   sg_neighbours()
 
 
 # If using igraph
 
-color_pal3 <- rainbow(3, alpha=.5) 
+color_pal3 <- rainbow(3, alpha=.3) 
 
 x_comun <- edge.betweenness.community(network)
 i <- membership(x_comun)
