@@ -1,0 +1,13 @@
+name: bicikl-network
+title: bicikl-network
+username:
+account: gbif
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6404640
+bundleId: 5964422
+url: https://gbif.shinyapps.io/bicikl-network/
+when: 1654013613.58329
+lastSyncTime: 1654013613.5833
+asMultiple: FALSE
+asStatic: FALSE
