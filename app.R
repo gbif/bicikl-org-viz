@@ -40,7 +40,9 @@ ui <- fluidPage(
     includeCSS('www/style.css'),
     
     # Application title
-    titlePanel("GBIF Organization Relationships"),
+    includeHTML('www/header.html'),
+               
+    
     
     # Sidebar with filter options
     sidebarLayout(
@@ -163,20 +165,6 @@ server <- function(input, output) {
                                                                          )})
             
         }
-    })
-    
-#    selectedRow <- eventReactive(input$relationships_table_rows_selected,{
-#        row.names(mtcars)[c(input$relationships_table_rows_selected)]
-#    })
-    
-    observeEvent(input$relationships_table_rows_selected, {
-        row <- input$relationships_table_rows_selected
-        if (is.null(info) || info != 0) {
-            output$h3_org <- renderText('<p>No row selected</p>')
-        } else {
-            output$h3_org <- renderText(paste('<p>Row selected: ',info,'</p>', sep = ""))
-        }
-        
     })
     
 }
