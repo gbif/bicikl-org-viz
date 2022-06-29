@@ -118,7 +118,7 @@ ui <- fluidPage(
       #)
       #,
       #withSpinner(
-      #  sigmajsOutput('org_plot'),
+      sigmajsOutput('org_plot'),
       #  type = 4,
       #  color = "#4787fb",
       #  size = 1
@@ -142,8 +142,9 @@ server <- function(input, output) {
   observeEvent(input$btn_visualize, {
     if (input$filter_org_list != 0) {
       # Get the corresponding data for the selected organization
-      dataTable <-
-        get_dataframe(input$filter_org_list, input$filter_depth, input$chk_exclutions)
+      dataTable <- get_dataframe(org_id = input$filter_org_list, 
+                                 level = input$filter_depth, 
+                                 exclutions = input$chk_exclutions)
       
       if (!is.null(dataTable)) {
         selected_org_name <- dataTable$org_name.x[dataTable$org_id.x == input$filter_org_list][1]
@@ -161,40 +162,34 @@ server <- function(input, output) {
         
         
         # Create the graph
-        #dset <-
-        #  select(dataTable, org_id.x, org_abbr.x, org_id.y, org_abbr.y)
-        #nodes <- dset %>%
-        #  group_by(org_id.y) %>%
-        #  tally() %>%
-        #  mutate(id = org_id.x,
-        #         size = n) %>%
-        #  select(id, size)
-        #edges <- dset %>%
-        #  mutate(from = org_id.x,
-        #         to = org_id.y) %>%
-        #  select(from, to)
-        #network <-
-        #  graph_from_data_frame(d = edges,
-        #                        directed = F,
-        #                        vertices = nodes)
-        #color_pal2 <- rainbow(2, alpha = .5)
-        #output$org_plot <- renderSigmajs(
-        #  sigmajs() %>%
-        #    sg_from_igraph(network) %>%
-        #    #sg_settings(drawLabels = TRUE, drawEdgeLabels = FALSE) %>%
-        #    sg_layout(layout = igraph::layout_nicely) %>%
-        #    sg_cluster(colors = color_pal2)  %>%
-        #    sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
-        #    sg_settings(
-        #      minNodeSize = 1,
-        #      maxNodeSize = 5.0,
-        #      edgeColor = "default",
-        #      defaultEdgeColor = "#d3d3d3",
-        #      labelThreshold = 5,
-        #      labelThreshold = 3
-        #    ) %>%
-        #    sg_neighbours()
-        #)
+        
+        edges <- dataTable %>%
+         mutate(from = org_id.x,
+                to = org_id.y) %>%
+         select(from, to)
+
+        network <- graph_from_data_frame(d = edges,
+                                         directed = FALSE)
+        
+        color_pal2 <- rainbow(2, alpha = .5)
+
+        output$org_plot <- renderSigmajs(
+         sigmajs() %>%
+           sg_from_igraph(network) %>%
+           sg_settings(drawLabels = TRUE, drawEdgeLabels = TRUE) %>%
+           sg_layout(layout = igraph::layout_nicely) %>%
+           sg_cluster(colors = color_pal2)  %>%
+           sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
+           sg_settings(
+             minNodeSize = 1,
+             maxNodeSize = 5.0,
+             edgeColor = "default",
+             defaultEdgeColor = "#d3d3d3",
+             labelThreshold = 5,
+             labelThreshold = 3
+           ) %>%
+           sg_neighbours()
+        )
         
         # Remove the first unnecessary column from the dataframe
         dataTable[1] <- NULL
@@ -208,8 +203,8 @@ server <- function(input, output) {
         
         
         # Remove underscore character (_) from the relation text: "collaborates_on" to "collaborates on"
-        dataTable$relation.x<- sub("_"," ",dataTable$relation.x)
-        dataTable$relation.y<- sub("_"," ",dataTable$relation.y)
+        dataTable$relation.x <- sub("_"," ",dataTable$relation.x)
+        dataTable$relation.y <- sub("_"," ",dataTable$relation.y)
         
         # Create valid organization URL in X
         dataTable$org_name.x <-
