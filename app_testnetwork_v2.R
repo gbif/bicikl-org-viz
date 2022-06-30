@@ -123,7 +123,7 @@ ui <- fluidPage(
       #  color = "#4787fb",
       #  size = 1
       #)
-      actionButton('btn_update', 'Update Graph'),
+      #actionButton('btn_update', 'Update Graph'),
       width = 9 # Mainpanel width, by default is 8 (2/3 of 12 units)
     )
     
@@ -159,37 +159,7 @@ server <- function(input, output) {
               sep = ""
             )
           )
-        
-        
-        # Create the graph
-        
-        edges <- dataTable %>%
-         mutate(from = org_id.x,
-                to = org_id.y) %>%
-         select(from, to)
-
-        network <- graph_from_data_frame(d = edges,
-                                         directed = FALSE)
-        
-        color_pal2 <- rainbow(2, alpha = .5)
-
-        output$org_plot <- renderSigmajs(
-         sigmajs() %>%
-           sg_from_igraph(network) %>%
-           sg_settings(drawLabels = TRUE, drawEdgeLabels = TRUE) %>%
-           sg_layout(layout = igraph::layout_nicely) %>%
-           sg_cluster(colors = color_pal2)  %>%
-           sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
-           sg_settings(
-             minNodeSize = 1,
-             maxNodeSize = 5.0,
-             edgeColor = "default",
-             defaultEdgeColor = "#d3d3d3",
-             labelThreshold = 5,
-             labelThreshold = 3
-           ) %>%
-           sg_neighbours()
-        )
+      
         
         # Remove the first unnecessary column from the dataframe
         dataTable[1] <- NULL
@@ -200,7 +170,6 @@ server <- function(input, output) {
         } else {
           dataTable <- arrange(dataTable, org_name.x)
         }
-        
         
         # Remove underscore character (_) from the relation text: "collaborates_on" to "collaborates on"
         dataTable$relation.x <- sub("_"," ",dataTable$relation.x)
@@ -240,25 +209,26 @@ server <- function(input, output) {
           sep = ''
         )
         
-        dataTable$org_id.x <- NULL
+       # dataTable$org_id.x <- NULL
         dataTable$org_abbr.x <- NULL
-        dataTable$org_id.y <- NULL
+      #  dataTable$org_id.y <- NULL
         dataTable$org_abbr.y <- NULL
         dataTable$fr_id <- NULL
         dataTable$fr_name <- NULL
         dataTable$fr_subjects <- NULL
         
-        # Rearrangin column
-        dataTable <- relocate(dataTable,org_name.x,relation.x,fr_abbr,relation.y,org_name.y)
+        # Rearranging column
+        dataTable <- relocate(dataTable,org_name.x,relation.x,fr_abbr,relation.y,org_name.y, org_id.x, org_id.y)
         
         # Renaming column names
-        colnames(dataTable) <- c('Origin', 'related to', 'FR Project', 'related to', 'Destination')
+        #colnames(dataTable) <- c('Origin', 'related to', 'FR Project', 'related to', 'Destination', 'org_id.x', 'org_id.y')
         
         # Rendering the final table
         output$relationships_table <-
           DT::renderDataTable({
             datatable(
-              dataTable,
+              select(in_react_data_frame(), -c(org_id.x, org_id.y)),
+              colnames = c('Origin', 'related to', 'FR Project', 'related to', 'Destination'),
               filter = 'top',
               extensions = 'Buttons',
               options = list(pageLength = 5, 
@@ -275,8 +245,56 @@ server <- function(input, output) {
               escape = FALSE,
               selection = "single"
             )
+            
           })
         shinyjs::show("btn_update")
+        
+        # Getting the filtered table
+        
+        in_react_data_frame <- reactiveVal(dataTable)
+        
+        filtered_dataTable <- reactive({
+          table <- req(in_react_data_frame())
+          indexes <- req(input$relationships_table_rows_all)
+          
+          table[indexes,]
+        })
+        
+        # Creates the graph
+        
+        edges <- reactive({
+          filtered_dataTable() %>%
+          mutate(from = org_id.x,
+                 to = org_id.y) %>%
+          select(from, to)
+        })
+        
+        
+        network <- reactive({
+          graph_from_data_frame(d = edges(),
+                                         directed = FALSE)
+        })
+        
+        color_pal2 <- rainbow(2, alpha = .5)
+        
+        output$org_plot <- renderSigmajs(
+          
+          sigmajs() %>%
+            sg_from_igraph(network()) %>%
+            sg_settings(drawLabels = TRUE, drawEdgeLabels = TRUE) %>%
+            sg_layout(layout = igraph::layout_nicely) %>%
+            sg_cluster(colors = color_pal2)  %>%
+            sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
+            sg_settings(
+              minNodeSize = 1,
+              maxNodeSize = 5.0,
+              edgeColor = "default",
+              defaultEdgeColor = "#d3d3d3",
+              labelThreshold = 5,
+              labelThreshold = 3
+            ) %>%
+            sg_neighbours()
+        )
         
       } else {
         output$h3_org <-
