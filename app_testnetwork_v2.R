@@ -269,9 +269,62 @@ server <- function(input, output) {
           select(from, to)
         })
         
+        # Hacer un vector con todos los nodos (valores únicos en  from y to de 
+        # edges). Este es el componente id del data.frame nodes
+        
+        nodes_from <- reactive({
+          edges() %>% 
+          select(from) %>% 
+          pull()
+        })
+        
+        size_from <- reactive({
+          nodes_from() %>%
+            tally()  
+        })
+        
+        # cat(file = stderr(), "from", colnames(size_from()[1]) , "\n")
+        # cat(file = stderr(), "from", colnames(size_from()[2]) , "\n")
+        
+        nodes_to  <- reactive({
+          edges() %>% 
+          select(to) %>% 
+          pull()
+        })
+        
+        size_to <- reactive({
+          nodes_to() %>%
+          tally()  
+        })  
+        
+        nodes_id <- reactive({
+          c(nodes_from(), nodes_to()) %>% 
+            unique() %>% 
+            as_tibble()
+          })
+        
+        #left_join(nodes_id(),size_from(),by)
+        
+        cat(file = stderr(), "edges", colnames(nodes_id()[1]) , "\n")
+        
+        
+        # Para calcular size contar cuantas veces cada nodo aparece como to en `edges.
+        
+        
+        
+        # Para obtener label, hacer un join con los datos de las organizaciones y asignar como label la abreviatura correspondiente
+        
+        # nodes <- reactive({
+        #     edges() %>%
+        #     group_by(from) %>%
+        #     tally() %>%
+        #     mutate(id = from,
+        #            size = n)
+        # })
         
         network <- reactive({
           graph_from_data_frame(d = edges(),
+                                #vertices = nodes(),
                                          directed = FALSE)
         })
         
