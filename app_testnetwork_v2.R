@@ -18,6 +18,10 @@ org_key_value  <- setNames(as.list(org_list$org_id), org_list$org)
 org_key_value  <-
   append(c('Select an Organization' = 0), org_key_value)
 
+full_org_list <- read_csv("data/full_org_list.csv") %>% 
+  mutate(abbr = abbreviate_text(name,minlength = 5),
+         label = abbr)
+
 get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
   # Read the dataset for the selected organization with two levels of relationships
   file_name <- paste('data/org_', org_id, '.', '2.csv', sep = '')
@@ -274,57 +278,83 @@ server <- function(input, output) {
         
         nodes_from <- reactive({
           edges() %>% 
-          select(from) %>% 
-          pull()
+          select(from) 
         })
         
+         
+         nodes_from_vector <- reactive({
+           edges() %>% 
+             select(from) %>% 
+             pull()
+         })
+        
+         
+         nodes_to  <- reactive({
+           edges() %>% 
+             select(to)
+         })
+         
+         nodes_to_vector  <- reactive({
+           edges() %>% 
+             select(to) %>% 
+             pull()
+         })
+        
+         # Para calcular size contar cuantas veces cada nodo aparece como to en 
+         #`edges.
+         
+         # También podemos calcular como from
+         
         size_from <- reactive({
           nodes_from() %>%
+            group_by(from) %>% 
             tally()  
-        })
-        
-        # cat(file = stderr(), "from", colnames(size_from()[1]) , "\n")
-        # cat(file = stderr(), "from", colnames(size_from()[2]) , "\n")
-        
-        nodes_to  <- reactive({
-          edges() %>% 
-          select(to) %>% 
-          pull()
         })
         
         size_to <- reactive({
           nodes_to() %>%
-          tally()  
+            group_by(to) %>% 
+            tally()  
         })  
         
+        # nodos unicos:
+        
         nodes_id <- reactive({
-          c(nodes_from(), nodes_to()) %>% 
+          c(nodes_from_vector(), nodes_to_vector()) %>% 
             unique() %>% 
             as_tibble()
           })
         
-        #left_join(nodes_id(),size_from(),by)
         
-        cat(file = stderr(), "edges", colnames(nodes_id()[1]) , "\n")
+        # id + size
+    
+        node_size <- reactive({
+          left_join(nodes_id(),size_from(),by = c("value" = "from" )) %>% 
+            rename(id = value,
+                   size = n) %>%
+            mutate(size = ifelse(is.na(size), 0, size))
+        })
         
+        # Para obtener label, hacer un join con los datos de las organizaciones 
+        # y asignar como label la abreviatura correspondiente
+        # Esta parte aun no funciona
         
-        # Para calcular size contar cuantas veces cada nodo aparece como to en `edges.
+        # id + size + label
         
-        
-        
-        # Para obtener label, hacer un join con los datos de las organizaciones y asignar como label la abreviatura correspondiente
-        
-        # nodes <- reactive({
-        #     edges() %>%
-        #     group_by(from) %>%
-        #     tally() %>%
-        #     mutate(id = from,
-        #            size = n)
+        # node_size_label <- reactive({
+        #   left_join(node_size(),full_org_list)
         # })
+        # 
+        
+        # cat(file = stderr(), "node_size_label", node_size_label()[1,1] , "\n")
+        # cat(file = stderr(), "node_size_label", node_size_label()[1,2] , "\n")
+        # cat(file = stderr(), "node_size_label", node_size_label()[1,3] , "\n")
+        # cat(file = stderr(), "node_size_label", node_size_label()[1,4] , "\n")
+        
         
         network <- reactive({
           graph_from_data_frame(d = edges(),
-                                #vertices = nodes(),
+                                vertices = node_size(),
                                          directed = FALSE)
         })
         
