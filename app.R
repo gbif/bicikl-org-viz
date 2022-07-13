@@ -215,9 +215,9 @@ server <- function(input, output) {
         )
         
         # dataTable$org_id.x <- NULL
-        dataTable$org_abbr.x <- NULL
-        #  dataTable$org_id.y <- NULL
-        dataTable$org_abbr.y <- NULL
+        # dataTable$org_abbr.x <- NULL
+        # dataTable$org_id.y <- NULL
+        # dataTable$org_abbr.y <- NULL
         dataTable$fr_id <- NULL
         dataTable$fr_name <- NULL
         dataTable$fr_subjects <- NULL
@@ -273,9 +273,8 @@ server <- function(input, output) {
         edges <- reactive({
           filtered_dataTable() %>%
             mutate(from = org_id.x,
-                   to = org_id.y,
-                   id = row_number()) %>%
-            select(from, to, id)
+                   to = org_id.y) %>%
+            select(from, to)
         })
         
         # Hacer un vector con todos los nodos (valores únicos en  from y to de 
@@ -293,6 +292,14 @@ server <- function(input, output) {
             pull()
         })
         
+        names_from <- reactive({
+          filtered_dataTable() %>% 
+            filter(org_id.x %in% nodes_from_vector()) %>% 
+            mutate(id = org_id.x,
+                   label = org_abbr.x,
+                   organization = org_name.x) %>% 
+            select(id,label,organization)
+        })
         
         nodes_to  <- reactive({
           edges() %>% 
@@ -305,10 +312,19 @@ server <- function(input, output) {
             pull()
         })
         
-        # Para calcular size contar cuantas veces cada nodo aparece como `to` en 
-        #edges.
+        names_to <- reactive({
+          filtered_dataTable() %>% 
+            filter(org_id.y %in% nodes_to_vector()) %>% 
+            mutate(id = org_id.y,
+                   label = org_abbr.y,
+                   organization = org_name.y) %>% 
+            select(id,label,organization)
+        })
         
-        # También podemos calcular como `from` 
+        # Para calcular size contar cuantas veces cada nodo aparece como to en 
+        #`edges.
+        
+        # También podemos calcular como from
         
         size_from <- reactive({
           nodes_from() %>%
@@ -334,55 +350,61 @@ server <- function(input, output) {
         # id + size
         
         node_size <- reactive({
-          node_size <- left_join(nodes_id(), size_from(), 
-                                 by = c("value" = "from" )) %>% 
+          left_join(nodes_id(),size_from(),by = c("value" = "from" )) %>% 
             rename(id = value,
                    size = n) %>%
-            mutate(size = ifelse(is.na(size), 0, size),
-                   id = as.character(id),
-                   color = case_when(
-                     id == input$filter_org_list ~ "red",
-                     TRUE ~ "black"
-                   ))
-          return(node_size)
+            mutate(size = ifelse(is.na(size), 0, size))
         })
         
-        # network <- reactive({
-        #   graph_from_data_frame(d = edges(),
-        #                         vertices = node_size(),
-        #                         directed = FALSE)
-        # })
-        # 
+        # labels:
+        
+        names_all <- reactive({
+          bind_rows(names_to(),names_from()) %>% 
+            distinct()
+        })
+        
+        # Para obtener label, hacer un join con los dato 
+        
+        
+        # id + size + label
+        
+        
+        
+        node_size_label <- reactive({
+          left_join(node_size(), names_all(),
+                    by = c("id" = "id"))
+        })
+        
+        
+        # cat(file = stderr(), "org_id.x", filtered_dataTable()$org_id.x[1] , "\n")
+        # cat(file = stderr(), "org_abbr.x", filtered_dataTable()$org_abbr.x[1] , "\n")
+        # cat(file = stderr(), "org_name.x", filtered_dataTable()$org_name.x[1] , "\n")
+        # cat(file = stderr(), "node_size_label", node_size_label()[1,4] , "\n")
+        
+        network <- reactive({
+          graph_from_data_frame(d = edges(),
+                                vertices = node_size_label(),
+                                directed = FALSE)
+        })
+        
+        color_pal2 <- rainbow(2, alpha = .5)
         
         output$org_plot <- renderSigmajs(
           
           sigmajs() %>%
-            sg_nodes(node_size(), id, size, color) %>%
-            sg_edges(edges(), id, from, to) %>%
-            sg_settings(drawLabels = TRUE, drawEdgeLabels = TRUE) %>%
+            sg_from_igraph(network()) %>%
+            sg_settings(drawLabels = TRUE, drawEdgeLabels = FALSE) %>%
             sg_layout(layout = igraph::layout_nicely) %>%
+            sg_cluster(colors = color_pal2)  %>%
+            sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
             sg_settings(
-              minNodeSize = 3,
-              maxNodeSize = 10.0,
+              minNodeSize = 1,
+              maxNodeSize = 5.0,
               edgeColor = "default",
               defaultEdgeColor = "#d3d3d3",
-              labelThreshold = 5,
-              labelThreshold = 3
-            ) %>%
-            sg_neighbours()
+              labelThreshold = 3           
+            )
         )
-        
-        observeEvent(input$filter_org_list, {
-          
-          nodes_color <- node_size() %>% 
-            mutate(node_color = case_when(
-              id == input$filter_org_list ~ "red",
-              TRUE ~ "black"
-            ))
-          
-          sigmajsProxy("org_plot") %>% 
-            sg_change_nodes_p(nodes_color, node_color, "color")
-        })
         
       } else {
         output$h3_org <-
