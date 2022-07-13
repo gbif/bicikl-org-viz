@@ -273,8 +273,9 @@ server <- function(input, output) {
         edges <- reactive({
           filtered_dataTable() %>%
             mutate(from = org_id.x,
-                   to = org_id.y) %>%
-            select(from, to)
+                   to = org_id.y,
+                   id = row_number()) %>%
+            select(from, to, id)
         })
         
         # Hacer un vector con todos los nodos (valores únicos en  from y to de 
@@ -333,31 +334,36 @@ server <- function(input, output) {
         # id + size
         
         node_size <- reactive({
-          left_join(nodes_id(),size_from(),by = c("value" = "from" )) %>% 
+          node_size <- left_join(nodes_id(), size_from(), 
+                                 by = c("value" = "from" )) %>% 
             rename(id = value,
                    size = n) %>%
-            mutate(size = ifelse(is.na(size), 0, size))
+            mutate(size = ifelse(is.na(size), 0, size),
+                   id = as.character(id),
+                   color = case_when(
+                     id == input$filter_org_list ~ "red",
+                     TRUE ~ "black"
+                   ))
+          return(node_size)
         })
         
-        network <- reactive({
-          graph_from_data_frame(d = edges(),
-                                vertices = node_size(),
-                                directed = FALSE)
-        })
-        
-        color_pal2 <- rainbow(2, alpha = .5)
+        # network <- reactive({
+        #   graph_from_data_frame(d = edges(),
+        #                         vertices = node_size(),
+        #                         directed = FALSE)
+        # })
+        # 
         
         output$org_plot <- renderSigmajs(
           
           sigmajs() %>%
-            sg_from_igraph(network()) %>%
+            sg_nodes(node_size(), id, size, color) %>%
+            sg_edges(edges(), id, from, to) %>%
             sg_settings(drawLabels = TRUE, drawEdgeLabels = TRUE) %>%
             sg_layout(layout = igraph::layout_nicely) %>%
-            sg_cluster(colors = color_pal2)  %>%
-            sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
             sg_settings(
-              minNodeSize = 1,
-              maxNodeSize = 5.0,
+              minNodeSize = 3,
+              maxNodeSize = 10.0,
               edgeColor = "default",
               defaultEdgeColor = "#d3d3d3",
               labelThreshold = 5,
@@ -365,6 +371,18 @@ server <- function(input, output) {
             ) %>%
             sg_neighbours()
         )
+        
+        observeEvent(input$filter_org_list, {
+          
+          nodes_color <- node_size() %>% 
+            mutate(node_color = case_when(
+              id == input$filter_org_list ~ "red",
+              TRUE ~ "black"
+            ))
+          
+          sigmajsProxy("org_plot") %>% 
+            sg_change_nodes_p(nodes_color, node_color, "color")
+        })
         
       } else {
         output$h3_org <-
