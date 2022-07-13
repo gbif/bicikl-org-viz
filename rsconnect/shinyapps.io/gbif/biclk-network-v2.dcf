@@ -1,0 +1,13 @@
+name: biclk-network-v2
+title: biclk-network-v2
+username:
+account: gbif
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6591031
+bundleId: 6068283
+url: https://gbif.shinyapps.io/biclk-network-v2/
+when: 1656946181.71633
+lastSyncTime: 1656946181.71634
+asMultiple: FALSE
+asStatic: FALSE
