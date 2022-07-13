@@ -29,7 +29,7 @@ get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
   if (file.exists(file_name)) {
     # Read the preloaded dataframe with the desire level of depth
     t <- read.csv(file_name)
-    if (exclutions == TRUE){
+    if (exclutions == TRUE) {
       t <- t[t$relation.x != 'undefined',]
       t <- t[t$relation.x != 'funds',]
       t <- t[t$relation.y != 'undefined',]
@@ -38,6 +38,7 @@ get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
     if (level == 1) {
       t <- t[t$org_id.x == org_id,]
     }
+      
     return(t)
     
   } else {
@@ -223,6 +224,8 @@ server <- function(input, output) {
         
         # Rearranging column
         dataTable <- relocate(dataTable,org_name.x,relation.x,fr_abbr,relation.y,org_name.y, org_id.x, org_id.y)
+        dataTable <- dataTable %>% 
+          mutate(across(.cols = everything(), .fns = as.factor))
         
         # Renaming column names
         #colnames(dataTable) <- c('Origin', 'related to', 'FR Project', 'related to', 'Destination', 'org_id.x', 'org_id.y')
@@ -235,7 +238,7 @@ server <- function(input, output) {
               colnames = c('Origin', 'related to', 'FR Project', 'related to', 'Destination'),
               filter = 'top',
               extensions = 'Buttons',
-              options = list(pageLength = 5, 
+              options = list(pageLength = 5,
                              dom = 'Blrtip',
                              buttons =
                                list(
@@ -244,8 +247,8 @@ server <- function(input, output) {
                                    buttons = c('csv', 'excel', 'pdf'),
                                    text = 'Download'
                                  )
-                               ), 
-                             autoWith = TRUE),
+                               ))
+              ,
               escape = FALSE,
               selection = "single"
             )
