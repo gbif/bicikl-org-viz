@@ -412,7 +412,7 @@ server <- function(input, output) {
       }
       
     }
-  })
+  }) 
   
 }
 
