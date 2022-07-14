@@ -218,15 +218,18 @@ server <- function(input, output) {
         # dataTable$org_abbr.x <- NULL
         # dataTable$org_id.y <- NULL
         # dataTable$org_abbr.y <- NULL
+        
         dataTable$fr_id <- NULL
         dataTable$fr_name <- NULL
         dataTable$fr_subjects <- NULL
         
         # Rearranging column
-        dataTable <- relocate(dataTable,org_name.x,relation.x,fr_abbr,relation.y,org_name.y, org_id.x, org_id.y)
+        dataTable <- relocate(dataTable,org_abbr.x,org_name.x,relation.x,fr_abbr,relation.y,org_abbr.y,org_name.y, org_id.x, org_id.y)
         dataTable <- dataTable %>% 
           mutate(relation.x = as.factor(relation.x),
-                 relation.y = as.factor(relation.y))
+                 relation.y = as.factor(relation.y),
+                 org_abbr.x = as.factor(org_abbr.x),
+                 org_abbr.y = as.factor(org_abbr.y))
         
         # Renaming column names
         #colnames(dataTable) <- c('Origin', 'related to', 'FR Project', 'related to', 'Destination', 'org_id.x', 'org_id.y')
@@ -235,8 +238,8 @@ server <- function(input, output) {
         output$relationships_table <-
           DT::renderDataTable({
             datatable(
-              select(in_react_data_frame(), -c(org_id.x, org_id.y)),
-              colnames = c('Origin', 'related to', 'FR Project', 'related to', 'Destination'),
+              select(in_react_data_frame(), c(org_abbr.x,org_name.x,relation.x,fr_abbr,relation.y,org_abbr.y,org_name.y)),
+              colnames = c('Abbr','Origin', 'related to', 'FR Project', 'related to', 'Abbr','Destination'),
               filter = 'top',
               extensions = 'Buttons',
               options = list(pageLength = 5,
@@ -398,11 +401,11 @@ server <- function(input, output) {
             sg_cluster(colors = color_pal2)  %>%
             sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
             sg_settings(
-              minNodeSize = 1,
-              maxNodeSize = 5.0,
+              minNodeSize = 3,
+              maxNodeSize = 8.0,
               edgeColor = "default",
               defaultEdgeColor = "#d3d3d3",
-              labelThreshold = 3           
+              labelThreshold = 5           
             )
         )
         

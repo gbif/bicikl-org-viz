@@ -5,9 +5,9 @@ account: gbif
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6591249
-bundleId: 6068411
+bundleId: 6098308
 url: https://gbif.shinyapps.io/bicikl-network-v2/
-when: 1656949017.43203
-lastSyncTime: 1656949017.43204
+when: 1657811023.52146
+lastSyncTime: 1657811023.52147
 asMultiple: FALSE
 asStatic: FALSE
