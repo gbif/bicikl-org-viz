@@ -29,7 +29,7 @@ get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
   if (file.exists(file_name)) {
     # Read the preloaded dataframe with the desire level of depth
     t <- read.csv(file_name)
-    if (exclutions == TRUE) {
+    if (exclutions == TRUE){
       t <- t[t$relation.x != 'undefined',]
       t <- t[t$relation.x != 'funds',]
       t <- t[t$relation.y != 'undefined',]
@@ -38,14 +38,12 @@ get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
     if (level == 1) {
       t <- t[t$org_id.x == org_id,]
     }
-    
     return(t)
     
   } else {
     return(NULL)
   }
 }
-
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -117,26 +115,27 @@ ui <- fluidPage(
       htmlOutput("h3_org"), # Show the selected organization name and Id
       #withSpinner(
       DT::dataTableOutput('relationships_table'),
-      #  type = 4,
-      #  color = "#4787fb",
-      #  size = 1
+      #  type = 4,
+      #  color = "#4787fb",
+      #  size = 1
       #)
       #,
       #withSpinner(
       sigmajsOutput('org_plot'),
-      #  type = 4,
-      #  color = "#4787fb",
-      #  size = 1
+      #  type = 4,
+      #  color = "#4787fb",
+      #  size = 1
       #)
       #actionButton('btn_update', 'Update Graph'),
       width = 9 # Mainpanel width, by default is 8 (2/3 of 12 units)
     )
     
   ),
-  includeHTML('www/footer.html'), 
+  includeHTML('www/footer.html'),
   position = c("left", "right"),
   fluid = TRUE
 )
+
 
 
 server <- function(input, output) {
@@ -164,8 +163,7 @@ server <- function(input, output) {
               sep = ""
             )
           )
-        
-        
+
         # Remove the first unnecessary column from the dataframe
         dataTable[1] <- NULL
         
@@ -224,13 +222,14 @@ server <- function(input, output) {
         dataTable$fr_subjects <- NULL
         
         # Rearranging column
+
         dataTable <- relocate(dataTable,org_abbr.x,org_name.x,relation.x,fr_abbr,relation.y,org_abbr.y,org_name.y, org_id.x, org_id.y)
         dataTable <- dataTable %>% 
           mutate(relation.x = as.factor(relation.x),
                  relation.y = as.factor(relation.y),
                  org_abbr.x = as.factor(org_abbr.x),
                  org_abbr.y = as.factor(org_abbr.y))
-        
+
         # Renaming column names
         #colnames(dataTable) <- c('Origin', 'related to', 'FR Project', 'related to', 'Destination', 'org_id.x', 'org_id.y')
         
@@ -238,6 +237,7 @@ server <- function(input, output) {
         output$relationships_table <-
           DT::renderDataTable({
             datatable(
+
               select(in_react_data_frame(), c(org_abbr.x,org_name.x,relation.x,fr_abbr,relation.y,org_abbr.y,org_name.y)),
               colnames = c('Abbr','Origin', 'related to', 'FR Project', 'related to', 'Abbr','Destination'),
               filter = 'top',
@@ -251,8 +251,8 @@ server <- function(input, output) {
                                    buttons = c('csv', 'excel', 'pdf'),
                                    text = 'Download'
                                  )
-                               ))
-              ,
+                               ), 
+                             autoWith = TRUE),
               escape = FALSE,
               selection = "single"
             )
@@ -353,7 +353,7 @@ server <- function(input, output) {
         # id + size
         
         node_size <- reactive({
-          left_join(nodes_id(),size_from(),by = c("value" = "from" )) %>% 
+          left_join(nodes_id(), size_from(), by = c("value" = "from" )) %>% 
             rename(id = value,
                    size = n) %>%
             mutate(size = ifelse(is.na(size), 0, size))
@@ -362,20 +362,16 @@ server <- function(input, output) {
         # labels:
         
         names_all <- reactive({
-          bind_rows(names_to(),names_from()) %>% 
+          bind_rows(names_to(), names_from()) %>% 
             distinct()
         })
         
-        # Para obtener label, hacer un join con los dato 
-        
-        
+        # Para obtener label, hacer un join con los datos
         # id + size + label
-        
-        
-        
         node_size_label <- reactive({
           left_join(node_size(), names_all(),
-                    by = c("id" = "id"))
+                    by = c("id" = "id")) %>% 
+            mutate(id = as.character(id))
         })
         
         
@@ -398,16 +394,32 @@ server <- function(input, output) {
             sg_from_igraph(network()) %>%
             sg_settings(drawLabels = TRUE, drawEdgeLabels = FALSE) %>%
             sg_layout(layout = igraph::layout_nicely) %>%
-            sg_cluster(colors = color_pal2)  %>%
-            sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
             sg_settings(
               minNodeSize = 3,
-              maxNodeSize = 8.0,
+              maxNodeSize = 9,
               edgeColor = "default",
               defaultEdgeColor = "#d3d3d3",
               labelThreshold = 5           
-            )
+            ) %>% 
+            sg_neighbours()
         )
+        
+        observeEvent(input$start, {
+          sigmajsProxy("org_plot") %>% # use sigmajsProxy!
+            sg_get_nodes_p()
+        })
+        
+        observeEvent(input$filter_org_list, {
+          
+          nodes_color <- node_size_label() %>% 
+            mutate(color = case_when(
+              id == input$filter_org_list ~ "red",
+              TRUE ~ "black"
+            ))
+          
+          sigmajsProxy("change") %>% 
+            sg_change_nodes_p(nodes_color, color, "color")
+        })
         
       } else {
         output$h3_org <-
@@ -415,7 +427,7 @@ server <- function(input, output) {
       }
       
     }
-  }) 
+  })
   
 }
 
