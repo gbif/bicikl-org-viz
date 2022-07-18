@@ -11,6 +11,7 @@ library(readr) # read data
 library(abbreviate) # to get unique abbreviations
 library(threejs) # another visual
 
+
 # Input data preparation
 # Read 14 BiCKL organisation list for
 org_list <- read.csv(file = 'data/org_list.csv')
