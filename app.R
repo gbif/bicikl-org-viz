@@ -394,6 +394,8 @@ server <- function(input, output) {
             sg_from_igraph(network()) %>%
             sg_settings(drawLabels = TRUE, drawEdgeLabels = FALSE) %>%
             sg_layout(layout = igraph::layout_nicely) %>%
+            sg_cluster(colors = color_pal2)  %>%
+            sg_cluster(colors = hcl.colors(10, "Set 2"))  %>%
             sg_settings(
               minNodeSize = 3,
               maxNodeSize = 9,
