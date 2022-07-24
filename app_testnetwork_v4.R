@@ -28,19 +28,33 @@ full_org_list <- gcs_get_object("csv/full_org_list.csv") %>%
   mutate(abbr = abbreviate_text(name,minlength = 5),
          label = abbr)
 
-# Global variable to access dateCreated metadata from selected org file
-org_file_date_created <- ""
+get_datadate <- function(org_id = 0) { 
+  out <- tryCatch({
+    file_name <- paste('csv/org_', org_id, '.2.csv', sep = '')
+    # Get metadata from file
+    m <- gcs_get_object(file_name, meta = TRUE)
+  }, warning = function(war){
+    print(paste("Warning during metadata query the organization file:", war))
+    return(NA)
+  }, error = function(err){
+    print(paste("Error during metadata query organization file:", err))
+    return(NULL)
+  })
+  
+  if (!is.na(out) && !is.null(out)) {
+    return(as.Date(m$timeCreated))
+  } else {
+    return(out) 
+  }
+}
 
 get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
   out <- tryCatch({
     # Read the dataset for the selected organization with two levels of relationships
-    file_name <- paste('csv/org_', org_id, '.', '2.csv', sep = '')
+    file_name <- paste('csv/org_', org_id, '.2.csv', sep = '')
     
     # Try to download and parse the file from Cloud Storage into a dataframe
     f <- gcs_get_object(file_name)
-    
-    # Get metadata from file
-    m <- gcs_get_object(file_name, meta = TRUE)
     
   }, warning = function(war){
     print(paste("Warning during downloading organization file:", war))
@@ -173,6 +187,8 @@ server <- function(input, output) {
                                  level = input$filter_depth, 
                                  exclutions = input$chk_exclutions)
       
+      org_file_date_created <- get_datadate(org_id = input$filter_org_list)
+      
       if (!is.null(dataTable)) {
         selected_org_name <- dataTable$org_name.x[dataTable$org_id.x == input$filter_org_list][1]
         output$h3_org <-
@@ -182,10 +198,10 @@ server <- function(input, output) {
               selected_org_name,
               " </strong>(",
               nrow(dataTable),
-              " relationships)</p>",
-              "(last udpate: ",
+              " relationships, ",
+              "data extracted: ",
               org_file_date_created,
-              ")",
+              ")</p>",
               sep = ""
             )
           )
