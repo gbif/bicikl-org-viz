@@ -28,7 +28,6 @@ h1{
   margin-left:0.5em;
 }
 .footer {
-  margin-top: 4em;
   background-color: #2f2f2f;
   padding: 12px;
   text-align: center;
@@ -64,4 +63,17 @@ h3 {
 }
 #DataTables_Table_0_length{
   padding-top:0.5em;
+}
+.dt-buttons{
+  float:right!important;
+}
+/*Overwrite shiny input container style*/
+.shiny-input-container:not(.shiny-input-container-inline){
+  width: 100%!important;
+}
+.form-group{
+  margin-bottom:0px!important;
+}
+#org_plot{
+  height: 500px!important;
 }

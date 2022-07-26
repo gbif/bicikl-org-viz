@@ -1,19 +1,28 @@
-#V 0.2.1
-library("tictoc")
-library("httr")
-library("jsonlite")
-library("dplyr")
-library("googleCloudStorageR")
+#V 0.2.2
+library(tictoc)
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(abbreviate)
+library(googleCloudStorageR)
+library(googleErrorReportingR)
 
-#Base API domain
+# Base API domain
 base_api <- 'https://api.fairsharing.org/'
 
+# Initialize the error message component
+message <- format_error_message()
+
+# Set any of the message components to your own value
+message$serviceContext$service <- "GBIF Data Extraction"
+message$serviceContext$version <- "v0.3.0"
+
+
+# Get bearen token using user credentials
 login <- function(username = '', userpassword = '') {
   #Get user credentials and return a valide bearer token 
   #If success returns a Bearer token, else, returns an error, a message or an empty string
   
-  #Initialize an empty response
-  response <- ''
   
   #Initialize the credentials array using input
   credentials <-
@@ -21,20 +30,36 @@ login <- function(username = '', userpassword = '') {
   
   #Fairshare API: Sign In method
   api_sign_in <- paste(base_api, 'users/sign_in', sep = "")
-  userdata <-
-    POST(api_sign_in, body = credentials, encode = 'json', verbose())
   
-  #Parse the result from endpoint
-  userdata_txt  <- content(userdata, "text")
-  userdata_json <- fromJSON(userdata_txt, flatten = TRUE)
+  #Try to login
+  response <- tryCatch({
+    userdata <-
+      POST(api_sign_in, body = credentials, encode = 'json', verbose())
+    
+    #Parse the result from endpoint
+    userdata_txt  <- content(userdata, "text")
+    userdata_json <- fromJSON(userdata_txt, flatten = TRUE)
+    
+    #Get the login success flag from the result. TRUE is a valid login
+    login <- userdata_json[["success"]]
+    
+    if ((!is.null(login)) && (login == TRUE)) {
+      #Parse and asemble the bearer token for the session
+      token <- userdata_json[["jwt"]]
+      btoken <- paste("Bearer ", token, sep = "")
+    }
+    
+  },error = function(err) { 
+    message$message <- paste("Login: Use of login API failed.", err)
+    googleErrorReportingR::report_error(message)
+    
+    return(NA)
+    }
+  )
   
-  #Get the login success flag from the result. TRUE is a valid login
-  login <- userdata_json[["success"]]
-  
-  if ((!is.null(login)) && (login == TRUE)) {
-    #Parse and asemble the bearer token for the session
-    token <- userdata_json[["jwt"]]
-    response <- paste("Bearer ", token, sep = "")
+  if (!is.na(response) && !is.null(login) && (login == TRUE)) {
+    return(btoken)
+    
   } else {
     if (length(userdata_json[["message"]]) > 0) { 
       response <- userdata_json[["message"]]
@@ -43,10 +68,13 @@ login <- function(username = '', userpassword = '') {
         response <- userdata_json[["error"]]
       }
     }
+    return(NA)
   }
-  return(response)
+  
 }
 
+
+# Get the full list of organisations available from the API
 get_organisations <- function(token = '') {
   api_link <- paste(base_api, 'search/organisations', sep = '')
   
@@ -94,17 +122,21 @@ get_organisations <- function(token = '') {
   return(unique(df_orgs))
 }
 
+
+# Create an organization abbreviation
 create_abbr <- function(name = '') {
 
   if (grepl('\\(|\\)',name)) {
     abbr <- gsub(".*\\((.+)\\).*","\\1",name)
   } else {
     #abbr <- gsub('\\b(\\pL)\\pL{1,}|.','\\U\\1',name,perl = TRUE)
-    abbr <- abbreviate(c(name))[1]
+    abbr <- as.character(abbreviate_text(c(name), minlength = 5))
   }
   return(abbr)
 }
 
+
+# Get the relationships from an organization or a project
 get_entity_relationships <-
   function(entity_id = '0', entity_type = 'org', token = '') {
     #Get the organisations_links array from an organization or fairsharing_record depending of entity_type
@@ -180,6 +212,7 @@ get_entity_relationships <-
     }
   }
 
+# Get the next level of relationships from an organization
 get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
   #id_vector is a vector of organisation ids to get fairsharing records
   #final_df is the dataframe were the new relationships are going to be included
@@ -297,15 +330,10 @@ if (length(token) > 0) {
     }
     toc(log = TRUE)
     
-    #Do not add abbreviation to 1st level orgs
-    #tic(paste("Find Organization Abbreviations:", org_id))
-    #org_df1_clean <- org_df2_clean[org_df2_clean$org_id.x == as.character(org_id),]
-    #toc(log = TRUE)
-    
+    # Write the file locally
     tic(paste("Write CSV:", org_id))
-    #Do not write the 1st level org CSV
-    #write.csv(org_df1_clean,paste('data/org_',org_id,'.1.csv',sep = ''))
-    write.csv(org_df2_clean,paste('data/org_',org_id,'.2.csv',sep = ''))
+    csv_filename <- paste('data/org_',org_id,'.2.csv',sep = '')
+    write.csv(org_df2_clean,csv_filename)
     toc(log = TRUE)
   }
 }
