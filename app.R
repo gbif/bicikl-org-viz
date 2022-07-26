@@ -10,35 +10,70 @@ library(skimr) # describe data
 library(readr) # read data
 library(abbreviate) # to get unique abbreviations
 library(threejs) # another visu
+library(googleCloudStorageR) # to access the GCP Storage bucket where the organisation files recide 
+
+# Google Cloud Storage setup. Access json available at /secrets
+gcs_global_bucket("bicikl_org_data")
 
 # Input data preparation
-# Read 14 BiCKL organisation list for
+# Read 14 BiCKL organisation list for dropdown input
 org_list <- read.csv(file = 'data/org_list.csv')
 org_key_value  <- setNames(as.list(org_list$org_id), org_list$org)
 org_key_value  <-
   append(c('Select an Organization' = 0), org_key_value)
 
-full_org_list <- read_csv("data/full_org_list.csv") %>% 
-  mutate(abbr = abbreviate_text(name,minlength = 5),
-         label = abbr)
-
-get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
-  # Read the dataset for the selected organization with two levels of relationships
-  file_name <- paste('data/org_', org_id, '.', '2.csv', sep = '')
+# This function would access the CSV file metadata to get the creation date from Cloud Storage
+get_datadate <- function(org_id = 0) { 
+  out <- tryCatch({
+    file_name <- paste('csv/org_', org_id, '.2.csv', sep = '')
+    
+    # Get metadata from file
+    m <- gcs_get_object(file_name, meta = TRUE)
+    
+  }, warning = function(war){
+    print(paste("Warning during metadata query the organization file:", war))
+    return(NA)
+  }, error = function(err){
+    print(paste("Error during metadata query organization file:", err))
+    return(NULL)
+  })
   
-  if (file.exists(file_name)) {
-    # Read the preloaded dataframe with the desire level of depth
-    t <- read.csv(file_name)
+  if (!is.na(out) && !is.null(out)) {
+    return(as.Date(m$timeCreated))
+  } else {
+    return(out) 
+  }
+}
+
+# This function would access the CSV file from Cloud Storage
+get_dataframe <- function(org_id = 0, level = 2, exclutions = TRUE) {
+  out <- tryCatch({
+    # Read the dataset for the selected organization with two levels of relationships
+    file_name <- paste('csv/org_', org_id, '.2.csv', sep = '')
+    
+    # Try to download and parse the file from Cloud Storage into a dataframe
+    f <- gcs_get_object(file_name)
+    
+  }, warning = function(war){
+    print(paste("Warning during downloading organization file:", war))
+    return(NA)
+  }, error = function(err){
+    print(paste("Error during downloading organization file:", err))
+    return(NULL)
+  })
+  
+  if (!is.na(out) && !is.null(out)) {
     if (exclutions == TRUE){
-      t <- t[t$relation.x != 'undefined',]
-      t <- t[t$relation.x != 'funds',]
-      t <- t[t$relation.y != 'undefined',]
-      t <- t[t$relation.y != 'funds',]
+      f <- f[f$relation.x != 'undefined',]
+      f <- f[f$relation.x != 'funds',]
+      f <- f[f$relation.y != 'undefined',]
+      f <- f[f$relation.y != 'funds',]
     }
     if (level == 1) {
-      t <- t[t$org_id.x == org_id,]
+      f <- f[f$org_id.x == org_id,]
     }
-    return(t)
+
+    return(f)
     
   } else {
     return(NULL)
@@ -56,83 +91,103 @@ ui <- fluidPage(
   # Application title
   includeHTML('www/header.html'),
   
+  
   # Sidebar with filter options
-  sidebarLayout(
-    sidebarPanel(
+  fluidRow(
+    column(
+      4,
       selectInput('filter_org_list', 'Organization', org_key_value),
-      selectInput(
-        'filter_depth',
-        'Depth Level',
-        c('First level' = 1, 'Second level' = 2)
-      ),
-      checkboxInput("chk_exclutions","Exclude undefined and fund type relationships",value = TRUE),
-      actionButton('btn_visualize', 'Visualize'),
-      HTML(
-        paste(
-          '<div class="credits">',
-          '<p style="text-align:center;">',
-          '<a href="https://fairsharing.org/" target="_blank">',
-          '<img src="https://api.fairsharing.org/img/fairsharing-attribution.svg" alt="FAIRsharing Logo" width="50%" height="50%">',
-          '</a></p>',
-          sep = ""
-        )
-      ),
-      HTML(
-        paste(
-          "<p>",
-          "Working under the auspices of the ",
-          tags$a(
-            href = "https://www.allianceforbio.org/",
-            target = "_blank",
-            "alliance for biodiversity knowledge"
-          ),
-          ", GBIF is responsible for producing a deliverable that identifies potential stakeholders and partners relevant to BiCIKL.</p>",
-          sep = ""
-        )
-      ),
-      HTML(
-        paste(
-          "<p>",
-          '<a href="https://fairsharing.org/" target="_blank">',
-          "<strong>FAIRsharing.org</strong></a> ",
-          "has provided critical assistance to this work by supplying curated information on open data resources, standards and policies. This data, which GBIF and the BiCIKL partners are both contributing to and drawing from, has served as a core information resource for a network graph analysis that reveals potential target communities for BiCIKL's outreach and educational activities.</p>",
-          sep = ""
-        )
-      ),
-      HTML(
-        paste(
-          "<p>",
-          '<a href="https://doi.org/10.1038/s41587-019-0080-8" target="_blank">',
-          "Learn more about <strong>FAIRsharing.org</strong>.</a>",
-          "</div>",
-          sep = ""
-        )
-      ),
-      width = 3 # Sidebar width, by default is 4 (1/3 of 12 units)
+      checkboxInput(
+        "chk_exclutions",
+        "Exclude undefined and fund type relationships",
+        value = TRUE
+      )
     ),
-    
-    mainPanel(
-      htmlOutput("h3_org"), # Show the selected organization name and Id
-      #withSpinner(
-      DT::dataTableOutput('relationships_table'),
-      #  type = 4,
-      #  color = "#4787fb",
-      #  size = 1
-      #)
-      #,
-      #withSpinner(
-      sigmajsOutput('org_plot'),
-      #  type = 4,
-      #  color = "#4787fb",
-      #  size = 1
-      #)
-      #actionButton('btn_update', 'Update Graph'),
-      width = 9 # Mainpanel width, by default is 8 (2/3 of 12 units)
-    )
-    
+    column(2,
+           selectInput(
+             'filter_depth',
+             'Depth Level',
+             c('First level' = 1, 'Second level' = 2)
+           )),
+    column(
+      6,
+      actionButton('btn_visualize', 'Visualize'),
+      style = 'padding-top:1.8em'
+    ),
+    style = "border-bottom:1px dotted lightgray"
   ),
-  includeHTML('www/footer.html'),
-  position = c("left", "right"),
+  
+  fluidRow(column(
+    12,
+    htmlOutput("h3_org"),
+    # Show the selected organization name and Id
+    #withSpinner(
+    DT::dataTableOutput('relationships_table'),
+    #  type = 4,
+    #  color = "#4787fb",
+    #  size = 1
+    #)
+    
+  ), style="class=data-table"),
+  fluidRow(column(12,
+                  #withSpinner(
+                  sigmajsOutput('org_plot'),
+                  #  type = 4,
+                  #  color = "#4787fb",
+                  #  size = 1
+                  #)
+                  ), style="class=plot"),
+  fluidRow(column(12,
+                  HTML(
+                    paste(
+                      '<p style="text-align:center;">',
+                      '<a href="https://fairsharing.org/" target="_blank">',
+                      '<img src="https://api.fairsharing.org/img/fairsharing-attribution.svg" alt="FAIRsharing Logo" width="150" >',
+                      '</a></p>',
+                      sep = ""
+                    )
+                  )), style="background-color: #f6f6f6;"),
+  fluidRow(
+    column(6,
+                  HTML(
+                    paste(
+                      "<p>",
+                      "Working under the auspices of the ",
+                      tags$a(
+                        href = "https://www.allianceforbio.org/",
+                        target = "_blank",
+                        "alliance for biodiversity knowledge"
+                      ),
+                      ", GBIF is responsible for producing a deliverable that identifies potential stakeholders and partners relevant to BiCIKL.</p>",
+                      sep = ""
+                    )
+                  ),
+                  HTML(
+                    paste(
+                      "<p>",
+                      '<a href="https://fairsharing.org/" target="_blank">',
+                      "<strong>FAIRsharing.org</strong></a> ",
+                      "has provided critical assistance to this work by supplying curated information on open data resources, standards and policies.",
+                      sep = ""
+                    )
+                  ))
+           ,
+           column(6,
+                  HTML(
+                    paste(
+                      "This data, which GBIF and the BiCIKL partners are both contributing to and drawing from, has served as a core information resource for a network graph analysis that reveals potential target communities for BiCIKL's outreach and educational activities.</p>",
+                      sep = ""
+                    )
+                  ),
+                  HTML(
+                    paste(
+                      "<p>",
+                      '<a href="https://doi.org/10.1038/s41587-019-0080-8" target="_blank">',
+                      "Learn more about <strong>FAIRsharing.org</strong>.</a>",
+                      sep = ""
+                    )
+                  )), style = "border-top:1px dotted lightgray; background-color: #f6f6f6;"),
+  includeHTML('www/footer.html'), 
   fluid = TRUE
 )
 
@@ -150,6 +205,8 @@ server <- function(input, output) {
                                  level = input$filter_depth, 
                                  exclutions = input$chk_exclutions)
       
+      org_file_date_created <- get_datadate(org_id = input$filter_org_list)
+      
       if (!is.null(dataTable)) {
         selected_org_name <- dataTable$org_name.x[dataTable$org_id.x == input$filter_org_list][1]
         output$h3_org <-
@@ -159,7 +216,10 @@ server <- function(input, output) {
               selected_org_name,
               " </strong>(",
               nrow(dataTable),
-              " relationships)</p>",
+              " relationships, ",
+              "data extracted: ",
+              org_file_date_created,
+              ")</p>",
               sep = ""
             )
           )
@@ -242,6 +302,8 @@ server <- function(input, output) {
               colnames = c('Abbr','Origin', 'related to', 'FR Project', 'related to', 'Abbr','Destination'),
               filter = 'top',
               extensions = 'Buttons',
+              style = 'bootstrap', 
+              class = 'table-bordered table-condensed',
               options = list(pageLength = 5,
                              dom = 'Blrtip',
                              buttons =
