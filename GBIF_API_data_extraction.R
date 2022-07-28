@@ -10,6 +10,9 @@ library(googleErrorReportingR)
 # Base API domain
 base_api <- 'https://api.fairsharing.org/'
 
+# Google Cloud Storage setup. Access json available at /secrets
+gcs_global_bucket("bicikl_org_data")
+
 # Initialize the error message component
 message <- format_error_message()
 
@@ -335,6 +338,22 @@ if (length(token) > 0) {
     csv_filename <- paste('data/org_',org_id,'.2.csv',sep = '')
     write.csv(org_df2_clean,csv_filename)
     toc(log = TRUE)
+    
+    # Upload the file to Cloud Storage
+    tic(paste("Upload CSV:", org_id))
+    gcs_filename <- paste('csv/org_',org_id,'.2.csv',sep = '')
+    
+    # Get current date and local file date for comparison
+    currentDate <- Sys.Date()
+    file_cdate <- as.Date(file.info(csv_filename)$ctime)
+    
+    if (file_date == currentDate) {
+      gcs_upload(csv_filename, name=gcs_filename, predefinedAcl='bucketLevel')
+    } else {
+      message$message <- paste("GCS Upload failed for", gcs_filename)
+      googleErrorReportingR::report_error(message)
+    }
+    toc(log = TRUE)    
   }
 }
 
