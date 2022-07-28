@@ -347,7 +347,7 @@ if (length(token) > 0) {
     currentDate <- Sys.Date()
     file_cdate <- as.Date(file.info(csv_filename)$ctime)
     
-    if (file_date == currentDate) {
+    if (file_cdate == currentDate) {
       gcs_upload(csv_filename, name=gcs_filename, predefinedAcl='bucketLevel')
     } else {
       message$message <- paste("GCS Upload failed for", gcs_filename)
