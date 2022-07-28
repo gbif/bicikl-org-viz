@@ -1,1 +1,3 @@
-GCS_AUTH_FILE='secrets/gbif-bickil-relationships-key2.json'
+PROJECT_ID='gbif-bickil-relationships'
+GCS_AUTH_FILE='secrets/gbif-bickil-relationships-key.json'
+ERROR_REPORTING_API_KEY='AIzaSyDIA_5PX-mEriSG5ncjSf2M_dGlEWIWVNY'
