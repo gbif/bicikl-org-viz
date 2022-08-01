@@ -7,6 +7,9 @@ library(abbreviate)
 library(googleCloudStorageR)
 library(googleErrorReportingR)
 
+# Base working directory
+base_dir <- '/home/technology/gbif-org-relationship-visualization/'
+
 # Base API domain
 base_api <- 'https://api.fairsharing.org/'
 
@@ -18,7 +21,7 @@ message <- format_error_message()
 
 # Set any of the message components to your own value
 message$serviceContext$service <- "GBIF Data Extraction"
-message$serviceContext$version <- "v0.3.0"
+message$serviceContext$version <- "v0.3.1"
 
 
 # Get bearen token using user credentials
@@ -301,7 +304,7 @@ if (length(token) > 0) {
   
   #Read 14 BiCKL organisation list for 
   tic("Read BiCKL Organization List")
-  organisation_list <- read.csv(file = 'data/org_list.csv')
+  organisation_list <- read.csv(file = paste(base_dir,'data/org_list.csv', sep=''))
   toc(log = TRUE)
   
   for (row in 1:nrow(organisation_list)) {
@@ -335,7 +338,7 @@ if (length(token) > 0) {
     
     # Write the file locally
     tic(paste("Write CSV:", org_id))
-    csv_filename <- paste('data/org_',org_id,'.2.csv',sep = '')
+    csv_filename <- paste(base_dir,'data/org_',org_id,'.2.csv',sep = '')
     write.csv(org_df2_clean,csv_filename)
     toc(log = TRUE)
     
