@@ -297,9 +297,9 @@ toc(log = TRUE)
 if (length(token) > 0) {
   
   #Get full organisation list with abbr
-  tic("Get Full Organization List")
+  tic("Update Full Organization List")
   full_org_list <- get_organisations(token)
-  write.csv(full_org_list,'data/full_org_list.csv')
+  write.csv(full_org_list, paste(base_dir,'data/full_org_list.csv', sep = ""))
   toc(log = TRUE)
   
   #Read 14 BiCKL organisation list for 
