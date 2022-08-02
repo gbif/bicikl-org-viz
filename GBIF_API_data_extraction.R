@@ -299,7 +299,20 @@ if (length(token) > 0) {
   #Get full organisation list with abbr
   tic("Update Full Organization List")
   full_org_list <- get_organisations(token)
-  write.csv(full_org_list, paste(base_dir,'data/full_org_list.csv', sep = ""))
+  result <- tryCatch({
+    write.csv(full_org_list, paste(base_dir,'data/full_org_list.csv', sep = ""))
+    
+  },warning = function(war) {
+    message$message <- paste("Warning: Writing Full Organization List:", err)
+    googleErrorReportingR::report_error(message)
+    return(NA)
+    
+  }, error = function(err) {
+    message$message <- paste("Error: Writing Full Organization List:", err)
+    googleErrorReportingR::report_error(message)
+    return(NULL)
+  } )
+  
   toc(log = TRUE)
   
   #Read 14 BiCKL organisation list for 
