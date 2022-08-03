@@ -7,8 +7,15 @@ library(abbreviate)
 library(googleCloudStorageR)
 library(googleErrorReportingR)
 
-# Base working directory
-base_dir <- '/home/technology/gbif-org-relationship-visualization/'
+# Base working directory load
+context <- Sys.getenv("CONTEXT")
+if (context != "local") {
+  readRenviron("/home/technology/gbif-org-relationship-visualization/.Renviron")
+  base_dir = "/home/technology/gbif-org-relationship-visualization/"
+} else {
+  base_dir = "~/Documents/CLIENTES/GBIF/gbif-org-relationship-visualization-v2/"
+}
+
 
 # Base API domain
 base_api <- 'https://api.fairsharing.org/'
@@ -305,7 +312,7 @@ if (length(token) > 0) {
   result <- tryCatch({
     full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
     write.csv(full_org_list, full_org_filename)
-    
+    return("success") 
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
     googleErrorReportingR::report_error(message)
@@ -316,7 +323,7 @@ if (length(token) > 0) {
     googleErrorReportingR::report_error(message)
     return("error")
     
-  } )
+  })
   
   if (result != "warning" & result != "error" ) {
     message$message <- paste("Info: Success writing Full Organization List:", err)
