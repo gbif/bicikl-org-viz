@@ -289,6 +289,7 @@ get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
 
 tic("Total time")
 currentDate <- Sys.Date()
+print(paste("Current date:", currentDate))
 
 tic("Login")
 #TESTING with fixed credentials
