@@ -288,6 +288,8 @@ get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
 }
 
 tic("Total time")
+currentDate <- Sys.Date()
+print(paste("Current date:", currentDate))
 
 tic("Login")
 #TESTING with fixed credentials
@@ -300,7 +302,8 @@ if (length(token) > 0) {
   tic("Update Full Organization List")
   full_org_list <- get_organisations(token)
   result <- tryCatch({
-    write.csv(full_org_list, paste(base_dir,'data/full_org_list.csv', sep = ""))
+    full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
+    write.csv(full_org_list, full_org_filename)
     
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", err)
@@ -312,6 +315,18 @@ if (length(token) > 0) {
     googleErrorReportingR::report_error(message)
     return(NULL)
   } )
+  
+  if (!is.na(result) && !is.null(result)) {
+    # Get local file date for comparison
+    full_org_file_cdate <- as.Date(file.info(full_org_filename)$ctime)
+    
+    if (full_org_file_cdate == currentDate) {
+      gcs_upload(full_org_filename, name='csv/full_org_list.csv', predefinedAcl='bucketLevel')
+    } else {
+      message$message <- paste("GCS Upload failed for", full_org_filename)
+      googleErrorReportingR::report_error(message)
+    }
+  }
   
   toc(log = TRUE)
   
@@ -359,8 +374,7 @@ if (length(token) > 0) {
     tic(paste("Upload CSV:", org_id))
     gcs_filename <- paste('csv/org_',org_id,'.2.csv',sep = '')
     
-    # Get current date and local file date for comparison
-    currentDate <- Sys.Date()
+    # Get local file date for comparison
     file_cdate <- as.Date(file.info(csv_filename)$ctime)
     
     if (file_cdate == currentDate) {
