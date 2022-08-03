@@ -21,7 +21,7 @@ message <- format_error_message()
 
 # Set any of the message components to your own value
 message$serviceContext$service <- "GBIF Data Extraction"
-message$serviceContext$version <- "v0.3.1"
+message$serviceContext$version <- "v0.3.2"
 
 
 # Get bearen token using user credentials
@@ -301,12 +301,13 @@ if (length(token) > 0) {
   #Get full organisation list with abbr
   tic("Update Full Organization List")
   full_org_list <- get_organisations(token)
+  
   result <- tryCatch({
     full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
     write.csv(full_org_list, full_org_filename)
     
   },warning = function(war) {
-    message$message <- paste("Warning: Writing Full Organization List:", err)
+    message$message <- paste("Warning: Writing Full Organization List:", war)
     googleErrorReportingR::report_error(message)
     return(NA)
     
@@ -314,18 +315,44 @@ if (length(token) > 0) {
     message$message <- paste("Error: Writing Full Organization List:", err)
     googleErrorReportingR::report_error(message)
     return(NULL)
+    
   } )
   
   if (!is.na(result) && !is.null(result)) {
+    message$message <- paste("Info: Success writing Full Organization List:", err)
+    googleErrorReportingR::report_error(message)
+    
     # Get local file date for comparison
     full_org_file_cdate <- as.Date(file.info(full_org_filename)$ctime)
     
     if (full_org_file_cdate == currentDate) {
-      gcs_upload(full_org_filename, name='csv/full_org_list.csv', predefinedAcl='bucketLevel')
+      result <- tryCatch({
+        gcs_upload(full_org_filename, name='csv/full_org_list.csv', predefinedAcl='bucketLevel')
+        
+      }, warning = function(war) {
+        message$message <- paste("Warning: Uploading Full Organization List to GCS:", war)
+        googleErrorReportingR::report_error(message)
+        return(NA)
+        
+      }, error = function(err) {
+        message$message <- paste("Error: Uploading Full Organization List to GCS:", err)
+        googleErrorReportingR::report_error(message)
+        return(NULL)
+        
+      })
+      
+      if (!is.na(result) && !is.null(result)){
+        message$message <- paste("Info: Success Uploading Full Organization List to GCS:", err)
+        googleErrorReportingR::report_error(message)
+      }
+      
     } else {
-      message$message <- paste("GCS Upload failed for", full_org_filename)
+      message$message <- paste("Error: Full organization file did not update: ", full_org_filename)
       googleErrorReportingR::report_error(message)
     }
+  } else {
+    message$message <- paste("Error: Local writing failed for", full_org_filename)
+    googleErrorReportingR::report_error(message)
   }
   
   toc(log = TRUE)
