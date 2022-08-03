@@ -309,16 +309,16 @@ if (length(token) > 0) {
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
     googleErrorReportingR::report_error(message)
-    return(NA)
+    return("warning")
     
   }, error = function(err) {
     message$message <- paste("Error: Writing Full Organization List:", err)
     googleErrorReportingR::report_error(message)
-    return(NULL)
+    return("error")
     
   } )
   
-  if (!is.na(result) && !is.null(result)) {
+  if (result != "warning" & result != "error" ) {
     message$message <- paste("Info: Success writing Full Organization List:", err)
     googleErrorReportingR::report_error(message)
     
