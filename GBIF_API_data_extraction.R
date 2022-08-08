@@ -225,6 +225,11 @@ get_entity_relationships <-
     }
   }
 
+write_full_org_list <- function() {
+  full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
+  write.csv(full_org_list, full_org_filename)
+  return("success")
+}
 # Get the next level of relationships from an organization
 get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
   #id_vector is a vector of organisation ids to get fairsharing records
@@ -310,8 +315,7 @@ if (length(token) > 0) {
   full_org_list <- get_organisations(token)
   
   result <- tryCatch({
-    full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
-    write.csv(full_org_list, full_org_filename)
+    write_full_org_list()
     
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
