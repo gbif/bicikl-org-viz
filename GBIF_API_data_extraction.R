@@ -29,7 +29,7 @@ message <- format_error_message()
 # Set any of the message components to your own value
 message$serviceContext$service <- "GBIF Data Extraction"
 message$serviceContext$version <- "v0.3.3"
-message$url <- "https://gbif.shinyapps.io/bicikl-network/"
+message$context$httpRequest$url <- "https://gbif.shinyapps.io/bicikl-network/"
 
 
 # Get bearen token using user credentials
@@ -67,6 +67,7 @@ login <- function(username = '', userpassword = '') {
     
   },error = function(err) { 
     message$message <- paste("Error: Use of login API failed.", err)
+    message$context$httpRequest$responseStatusCode <- "500"
     googleErrorReportingR::report_error(message)
     
     return(NA)
@@ -319,7 +320,7 @@ toc(log = TRUE)
 
 # Log reporting message
 message$message <- "Info: Use of login API failed."
-message$response_status_code <- "200"
+message$context$httpRequest$responseStatusCode <- "200"
 googleErrorReportingR::report_error(message)
 
 if (length(token) > 0) {
@@ -333,11 +334,13 @@ if (length(token) > 0) {
     
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
+    message$context$httpRequest$responseStatusCode <- "501"
     googleErrorReportingR::report_error(message)
     return("warning")
     
   }, error = function(err) {
     message$message <- paste("Error: Writing Full Organization List:", err)
+    message$context$httpRequest$responseStatusCode <- "500"
     googleErrorReportingR::report_error(message)
     return("error")
     
@@ -345,7 +348,7 @@ if (length(token) > 0) {
   
   if (result != "error" ) {
     message$message <- "Info: Success writing Full Organization List:"
-    message$response_status_code <- "200"
+    message$context$httpRequest$responseStatusCode <- "200"
     googleErrorReportingR::report_error(message)
     
     # Get local file date for comparison
@@ -357,11 +360,13 @@ if (length(token) > 0) {
         
       }, warning = function(war) {
         message$message <- paste("Warning: Uploading Full Organization List to GCS:", war)
+        message$context$httpRequest$responseStatusCode <- "501"
         googleErrorReportingR::report_error(message)
         return(NA)
         
       }, error = function(err) {
         message$message <- paste("Error: Uploading Full Organization List to GCS:", err)
+        message$context$httpRequest$responseStatusCode <- "500"
         googleErrorReportingR::report_error(message)
         return(NULL)
         
@@ -369,19 +374,22 @@ if (length(token) > 0) {
       
       if (result != "error" ){
         message$message <- "Info: Success Uploading Full Organization List to GCS"
-        message$response_status_code <- "200"
+        message$context$httpRequest$responseStatusCode <- "200"
         googleErrorReportingR::report_error(message)
       } else {
         message$message <- paste("Error: Full organization file did not get uploaded to GCS:", full_org_filename)
+        message$context$httpRequest$responseStatusCode <- "500"
         googleErrorReportingR::report_error(message)
       }
       
     } else {
       message$message <- paste("Error: Full organization file did not get updated:", full_org_filename)
+      message$context$httpRequest$responseStatusCode <- "500"
       googleErrorReportingR::report_error(message)
     }
   } else {
     message$message <- paste("Error: Local writing failed for", full_org_filename)
+    message$context$httpRequest$responseStatusCode <- "500"
     googleErrorReportingR::report_error(message)
   }
   
@@ -439,11 +447,12 @@ if (length(token) > 0) {
       
       # Log reporting message
       message$message <- paste("Info: GCS upload success for", gcs_filename)
-      message$response_status_code <- "200"
+      message$context$httpRequest$responseStatusCode <- "200"
       googleErrorReportingR::report_error(message)
       
     } else {
       message$message <- paste("Error: GCS upload failed for", gcs_filename)
+      message$context$httpRequest$responseStatusCode <- "500"
       googleErrorReportingR::report_error(message)
     }
     toc(log = TRUE)    
@@ -451,6 +460,7 @@ if (length(token) > 0) {
 } else {
   # Log reporting message
   message$message <- "Error: Use of login API failed."
+  message$context$httpRequest$responseStatusCode <- "500"
   googleErrorReportingR::report_error(message)
 }
 
