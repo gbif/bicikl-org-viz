@@ -38,7 +38,7 @@ login <- function(username = '', userpassword = '') {
   #If success returns a Bearer token, else, returns an error, a message or an empty string
   
   # Init function name for error reporting
-  message$function_name <- "api_sign_in"
+  message$context$reportLocation$functionName <- "api_sign_in"
   
   #Initialize the credentials array using input
   credentials <-
@@ -236,7 +236,6 @@ write_full_org_list <- function() {
 }
 
 
-
 # Get the next level of relationships from an organization
 get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
   #id_vector is a vector of organisation ids to get fairsharing records
@@ -306,12 +305,14 @@ get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
   
 }
 
+
+#########################################################
+# Main functionality
+#########################################################
+
 tic("Total time")
 currentDate <- Sys.Date()
 print(paste("Current date:", currentDate))
-
-# Set the function name for error reporting messages
-message$function_name <- "main_function"
 
 tic("Login")
 #TESTING with fixed credentials
@@ -320,6 +321,7 @@ toc(log = TRUE)
 
 # Log reporting message
 message$message <- "Info: Use of login API failed."
+message$context$reportLocation$functionName <- "main_function"
 message$context$httpRequest$responseStatusCode <- "200"
 googleErrorReportingR::report_error(message)
 
@@ -334,12 +336,14 @@ if (length(token) > 0) {
     
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
+    message$context$reportLocation$functionName <- "main_function"
     message$context$httpRequest$responseStatusCode <- "501"
     googleErrorReportingR::report_error(message)
     return("warning")
     
   }, error = function(err) {
     message$message <- paste("Error: Writing Full Organization List:", err)
+    message$context$reportLocation$functionName <- "main_function"
     message$context$httpRequest$responseStatusCode <- "500"
     googleErrorReportingR::report_error(message)
     return("error")
@@ -348,6 +352,7 @@ if (length(token) > 0) {
   
   if (result != "error" ) {
     message$message <- "Info: Success writing Full Organization List:"
+    message$context$reportLocation$functionName <- "main_function"
     message$context$httpRequest$responseStatusCode <- "200"
     googleErrorReportingR::report_error(message)
     
@@ -360,12 +365,14 @@ if (length(token) > 0) {
         
       }, warning = function(war) {
         message$message <- paste("Warning: Uploading Full Organization List to GCS:", war)
+        message$context$reportLocation$functionName <- "main_function"
         message$context$httpRequest$responseStatusCode <- "501"
         googleErrorReportingR::report_error(message)
         return(NA)
         
       }, error = function(err) {
         message$message <- paste("Error: Uploading Full Organization List to GCS:", err)
+        message$context$reportLocation$functionName <- "main_function"
         message$context$httpRequest$responseStatusCode <- "500"
         googleErrorReportingR::report_error(message)
         return(NULL)
@@ -374,21 +381,25 @@ if (length(token) > 0) {
       
       if (result != "error" ){
         message$message <- "Info: Success Uploading Full Organization List to GCS"
+        message$context$reportLocation$functionName <- "main_function"
         message$context$httpRequest$responseStatusCode <- "200"
         googleErrorReportingR::report_error(message)
       } else {
         message$message <- paste("Error: Full organization file did not get uploaded to GCS:", full_org_filename)
+        message$context$reportLocation$functionName <- "main_function"
         message$context$httpRequest$responseStatusCode <- "500"
         googleErrorReportingR::report_error(message)
       }
       
     } else {
       message$message <- paste("Error: Full organization file did not get updated:", full_org_filename)
+      message$context$reportLocation$functionName <- "main_function"
       message$context$httpRequest$responseStatusCode <- "500"
       googleErrorReportingR::report_error(message)
     }
   } else {
     message$message <- paste("Error: Local writing failed for", full_org_filename)
+    message$context$reportLocation$functionName <- "main_function"
     message$context$httpRequest$responseStatusCode <- "500"
     googleErrorReportingR::report_error(message)
   }
@@ -447,11 +458,13 @@ if (length(token) > 0) {
       
       # Log reporting message
       message$message <- paste("Info: GCS upload success for", gcs_filename)
+      message$context$reportLocation$functionName <- "main_function"
       message$context$httpRequest$responseStatusCode <- "200"
       googleErrorReportingR::report_error(message)
       
     } else {
       message$message <- paste("Error: GCS upload failed for", gcs_filename)
+      message$context$reportLocation$functionName <- "main_function"
       message$context$httpRequest$responseStatusCode <- "500"
       googleErrorReportingR::report_error(message)
     }
@@ -460,6 +473,7 @@ if (length(token) > 0) {
 } else {
   # Log reporting message
   message$message <- "Error: Use of login API failed."
+  message$context$reportLocation$functionName <- "main_function"
   message$context$httpRequest$responseStatusCode <- "500"
   googleErrorReportingR::report_error(message)
 }
