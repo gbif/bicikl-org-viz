@@ -37,6 +37,8 @@ login <- function(username = '', userpassword = '') {
   #Get user credentials and return a valide bearer token 
   #If success returns a Bearer token, else, returns an error, a message or an empty string
   
+  # Init function name for error reporting
+  message$function_name <- "api_sign_in"
   
   #Initialize the credentials array using input
   credentials <-
@@ -64,8 +66,7 @@ login <- function(username = '', userpassword = '') {
     }
     
   },error = function(err) { 
-    message$message <- paste("Login: Use of login API failed.", err)
-    message$function_name <- "api_sign_in"
+    message$message <- paste("Error: Use of login API failed.", err)
     googleErrorReportingR::report_error(message)
     
     return(NA)
@@ -232,6 +233,9 @@ write_full_org_list <- function() {
   write.csv(full_org_list, full_org_filename)
   return("success")
 }
+
+
+
 # Get the next level of relationships from an organization
 get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
   #id_vector is a vector of organisation ids to get fairsharing records
@@ -306,12 +310,17 @@ currentDate <- Sys.Date()
 print(paste("Current date:", currentDate))
 
 # Set the function name for error reporting messages
-message$function_name <- "get_org_pairs"
+message$function_name <- "main_function"
 
 tic("Login")
 #TESTING with fixed credentials
 token <- login("cpravia", "ExtendoPrivado!!")
 toc(log = TRUE)
+
+# Log reporting message
+message$message <- "Info: Use of login API failed."
+message$response_status_code = "200"
+googleErrorReportingR::report_error(message)
 
 if (length(token) > 0) {
   
@@ -427,12 +436,22 @@ if (length(token) > 0) {
     
     if (file_cdate == currentDate) {
       gcs_upload(csv_filename, name=gcs_filename, predefinedAcl='bucketLevel')
+      
+      # Log reporting message
+      message$message <- paste("Info: GCS upload success for", gcs_filename)
+      message$response_status_code = "200"
+      googleErrorReportingR::report_error(message)
+      
     } else {
-      message$message <- paste("GCS Upload failed for", gcs_filename)
+      message$message <- paste("Error: GCS upload failed for", gcs_filename)
       googleErrorReportingR::report_error(message)
     }
     toc(log = TRUE)    
   }
+} else {
+  # Log reporting message
+  message$message <- "Error: Use of login API failed."
+  googleErrorReportingR::report_error(message)
 }
 
 toc(log = TRUE)
