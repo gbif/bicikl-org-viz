@@ -28,7 +28,8 @@ message <- format_error_message()
 
 # Set any of the message components to your own value
 message$serviceContext$service <- "GBIF Data Extraction"
-message$serviceContext$version <- "v0.3.2"
+message$serviceContext$version <- "v0.3.3"
+message$url <- "https://gbif.shinyapps.io/bicikl-network/"
 
 
 # Get bearen token using user credentials
@@ -64,6 +65,7 @@ login <- function(username = '', userpassword = '') {
     
   },error = function(err) { 
     message$message <- paste("Login: Use of login API failed.", err)
+    message$function_name <- "api_sign_in"
     googleErrorReportingR::report_error(message)
     
     return(NA)
@@ -303,6 +305,9 @@ tic("Total time")
 currentDate <- Sys.Date()
 print(paste("Current date:", currentDate))
 
+# Set the function name for error reporting messages
+message$function_name <- "get_org_pairs"
+
 tic("Login")
 #TESTING with fixed credentials
 token <- login("cpravia", "ExtendoPrivado!!")
@@ -353,13 +358,17 @@ if (length(token) > 0) {
         
       })
       
-      if (!is.na(result) && !is.null(result)){
-        message$message <- paste("Info: Success Uploading Full Organization List to GCS:", err)
+      if (result != "error" ){
+        message$message <- "Info: Success Uploading Full Organization List to GCS"
+        message$response_status_code <- "200"
+        googleErrorReportingR::report_error(message)
+      } else {
+        message$message <- paste("Error: Full organization file did not get uploaded to GCS:", full_org_filename)
         googleErrorReportingR::report_error(message)
       }
       
     } else {
-      message$message <- paste("Error: Full organization file did not update: ", full_org_filename)
+      message$message <- paste("Error: Full organization file did not get updated:", full_org_filename)
       googleErrorReportingR::report_error(message)
     }
   } else {
