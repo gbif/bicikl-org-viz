@@ -330,7 +330,8 @@ if (length(token) > 0) {
   })
   
   if (result != "error" ) {
-    message$message <- paste("Info: Success writing Full Organization List:", err)
+    message$message <- "Info: Success writing Full Organization List:"
+    message$response_status_code <- "200"
     googleErrorReportingR::report_error(message)
     
     # Get local file date for comparison
