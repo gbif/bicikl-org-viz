@@ -235,6 +235,10 @@ write_full_org_list <- function() {
   return("success")
 }
 
+upload_to_gcs <- function(local,remote) {
+  gcs_upload(local, name=remote, predefinedAcl='bucketLevel')
+  return("success")
+}
 
 # Get the next level of relationships from an organization
 get_org_pairs <- function(id_vector = c(), final_df = NULL, token = '') {
@@ -357,11 +361,12 @@ if (length(token) > 0) {
     googleErrorReportingR::report_error(message)
     
     # Get local file date for comparison
-    full_org_file_cdate <- as.Date(file.info(full_org_filename)$ctime)
+    full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
+    full_org_file_cdate <- as.Date(file.info(full_org_filename)$ctime) 
     
     if (full_org_file_cdate == currentDate) {
       result <- tryCatch({
-        gcs_upload(full_org_filename, name='csv/full_org_list.csv', predefinedAcl='bucketLevel')
+        upload_to_gcs(full_org_filename,'csv/full_org_list.csv')
         
       }, warning = function(war) {
         message$message <- paste("Warning: Uploading Full Organization List to GCS:", war)
