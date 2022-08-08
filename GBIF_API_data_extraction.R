@@ -312,7 +312,7 @@ if (length(token) > 0) {
   result <- tryCatch({
     full_org_filename <- paste(base_dir,'data/full_org_list.csv', sep = "")
     write.csv(full_org_list, full_org_filename)
-    return("success") 
+    
   },warning = function(war) {
     message$message <- paste("Warning: Writing Full Organization List:", war)
     googleErrorReportingR::report_error(message)
@@ -325,7 +325,7 @@ if (length(token) > 0) {
     
   })
   
-  if (result != "warning" & result != "error" ) {
+  if (result != "error" ) {
     message$message <- paste("Info: Success writing Full Organization List:", err)
     googleErrorReportingR::report_error(message)
     
