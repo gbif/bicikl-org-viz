@@ -319,7 +319,7 @@ toc(log = TRUE)
 
 # Log reporting message
 message$message <- "Info: Use of login API failed."
-message$response_status_code = "200"
+message$response_status_code <- "200"
 googleErrorReportingR::report_error(message)
 
 if (length(token) > 0) {
@@ -439,7 +439,7 @@ if (length(token) > 0) {
       
       # Log reporting message
       message$message <- paste("Info: GCS upload success for", gcs_filename)
-      message$response_status_code = "200"
+      message$response_status_code <- "200"
       googleErrorReportingR::report_error(message)
       
     } else {
